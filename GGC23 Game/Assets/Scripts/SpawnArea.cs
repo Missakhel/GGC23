@@ -29,7 +29,7 @@ public class SpawnArea : MonoBehaviour
         if(m_currentSpawnTime <= 0)
         {
             m_currentSpawnTime -= Time.deltaTime;
-            Instantiate
+            //Instantiate
         }
         else
         {
@@ -39,7 +39,7 @@ public class SpawnArea : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, m_bc.size);
-        Gizmos.color = Color.magenta;
+        //Gizmos.DrawWireCube(transform.position, m_bc.size);
+        //Gizmos.color = Color.magenta;
     }
 }
