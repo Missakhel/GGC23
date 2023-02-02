@@ -16,7 +16,6 @@ public class Walk : State
         direction2 = new Vector2(1f, 0f);
         direction3 = new Vector2(0f, 1f);
         direction4 = new Vector2(0f, -1f);
-        Debug.Log("Entraste a walk");
     }
 
     // Update is called once per frame
@@ -62,6 +61,6 @@ public class Walk : State
     }
     public override void OnExit()
     {
-        Debug.Log("Saliendo de Walk");
+       
     }
 }

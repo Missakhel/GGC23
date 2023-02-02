@@ -17,7 +17,6 @@ public class Run : State
         direction2 = new Vector3(2f, 0f, 0f);
         direction3 = new Vector2(0f, 2f);
         direction4 = new Vector2(0f, -2f);
-        Debug.Log("Entraste a Run");
     }
 
     // Update is called once per frame
@@ -67,6 +66,6 @@ public class Run : State
 
     public override void OnExit()
     {
-        Debug.Log("Saliendo de Run");
+        
     }
 }

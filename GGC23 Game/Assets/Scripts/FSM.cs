@@ -13,7 +13,6 @@ public class FSM : MonoBehaviour
     public State m_Run;
     public State m_Idle;
     public Rigidbody2D Rigid;
-    public Animator animator;
     public void SetState(State newState)
     {
         m_current.OnExit();
@@ -31,7 +30,6 @@ public class FSM : MonoBehaviour
         m_current = m_Idle;
         m_current.OnEnter();
         Rigid = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
     void Update()
     {

@@ -8,7 +8,7 @@ public class Idle : State
     // Start is called before the first frame update
     public override void OnEnter()
     {
-        Debug.Log("Entraste a idle");
+
     }
 
     // Update is called once per frame
@@ -35,6 +35,6 @@ public class Idle : State
     }
     public override void OnExit()
     {
-        Debug.Log("Saliendo de Idle");
+        
     }
 }

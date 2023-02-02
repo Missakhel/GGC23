@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class State : MonoBehaviour
 {
-    public Animator animator;
     public FSM m_statemachine;
     virtual public void OnEnter(){
 
@@ -32,6 +31,6 @@ public class State : MonoBehaviour
     }
     private void Awake()
     {
-        animator = GameObject.Find("Player").GetComponent<Animator>();
+       
     }
 }
