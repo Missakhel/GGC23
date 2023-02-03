@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    float speed = .01f;
-    public GameObject target;
+    [HideInInspector] public float speed;
+    GameObject target;
 
     private void Awake()
     {
@@ -22,5 +22,14 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Projectile"))
+        {
+            Debug.Log("hit");
+            Destroy(gameObject);
+        }
     }
 }
