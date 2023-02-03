@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [HideInInspector] public float speed;
+    [HideInInspector] public int score;
     GameObject target;
 
     private void Awake()
