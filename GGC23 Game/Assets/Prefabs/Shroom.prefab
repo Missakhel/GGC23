@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_child: {fileID: 8864151419488917416, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+  m_damageForse: 1
 --- !u!114 &3721789235845560831
 MonoBehaviour:
   m_ObjectHideFlags: 0

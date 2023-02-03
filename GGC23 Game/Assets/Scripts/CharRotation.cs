@@ -8,6 +8,8 @@ public class CharRotation : MonoBehaviour
     private Vector3 m_objective;
     public GameObject m_bulletPrefab;
     public Transform m_spawner;
+    public float m_bulletLife = 5f;
+    public float m_bulletVelocity = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +35,8 @@ public class CharRotation : MonoBehaviour
         {
             GameObject m_bullet = Instantiate(m_bulletPrefab);
             m_bullet.transform.position = m_spawner.position;
-            m_bullet.GetComponent<Rigidbody2D>().velocity = m_spawner.position - transform.position;
-            Destroy(m_bullet, 5f);
+            m_bullet.GetComponent<Rigidbody2D>().velocity = (m_spawner.position - transform.position)*m_bulletVelocity;
+            Destroy(m_bullet, m_bulletLife);
         }
     }
 }
