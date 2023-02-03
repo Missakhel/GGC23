@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpawnArea : MonoBehaviour
 {
     // Start is called before the first frame update
+    int m_currentScore = 0;
     BoxCollider2D m_bc;
     Vector2 m_spawnPosition;
     public GameObject m_enemyPrefab;
+    TextMeshProUGUI m_scoreText;
     GameObject m_enemyInstance;
+
     public float m_timer = 3.0f;
     public float m_enemySpeed = .1f;
     float m_currentSpawnTime;
@@ -17,11 +21,7 @@ public class SpawnArea : MonoBehaviour
     private void Awake()
     {
         m_bc = GetComponent<BoxCollider2D>();
-    }
-
-    void Start()
-    {
-        
+        m_scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -39,5 +39,7 @@ public class SpawnArea : MonoBehaviour
         {
             m_currentSpawnTime -= Time.deltaTime;
         }
+
+        m_scoreText.text = m_currentScore.ToString();
     }
 }
