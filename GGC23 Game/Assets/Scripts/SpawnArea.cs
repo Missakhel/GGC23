@@ -29,7 +29,6 @@ public class SpawnArea : MonoBehaviour
         if(m_currentSpawnTime <= 0)
         {
             m_currentSpawnTime -= Time.deltaTime;
-            Instantiate
         }
         else
         {
