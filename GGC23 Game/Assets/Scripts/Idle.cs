@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Idle : State
 {
-
     // Start is called before the first frame update
     public override void OnEnter()
     {
