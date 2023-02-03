@@ -8,11 +8,11 @@ public class Walk : State
     Vector3 direction2;
     Vector3 direction3;
     Vector3 direction4;
-    float Vel;
+    [SerializeField] float m_vel =0f;
     // Start is called before the first frame update
     public override void OnEnter()
     {
-        direction = new Vector2(-1f, 0f);
+        direction = new Vector2(-1, 0f);
         direction2 = new Vector2(1f, 0f);
         direction3 = new Vector2(0f, 1f);
         direction4 = new Vector2(0f, -1f);
@@ -23,20 +23,19 @@ public class Walk : State
     {
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += direction *Time.deltaTime;
-
+            transform.position += direction * m_vel *Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += direction2 * Time.deltaTime;
+            transform.position += direction2 * m_vel *Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += direction3 * Time.deltaTime;
+            transform.position += direction3 * m_vel * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += direction4 * Time.deltaTime;
+            transform.position += direction4 * m_vel * Time.deltaTime;
         }
         if (Input.GetKeyUp(KeyCode.A))
         {

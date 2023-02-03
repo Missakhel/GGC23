@@ -9,6 +9,7 @@ public class Run : State
     Vector3 direction2;
     Vector3 direction3;
     Vector3 direction4;
+    [SerializeField] float m_velRun = 0f;
     // Start is called before the first frame update
     public override void OnEnter()
     {
@@ -22,27 +23,26 @@ public class Run : State
     // Update is called once per frame
     public override void OnUpdate()
     {
-
         if (Input.GetKey(KeyCode.LeftShift))
         {
             if (Input.GetKey(KeyCode.D))
             {
-                transform.position += direction2 * Time.deltaTime;
+                transform.position += direction2 * m_velRun* Time.deltaTime;
                 LapsedTime += Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.A))
             {
-                transform.position += direction * Time.deltaTime;
+                transform.position += direction * m_velRun* Time.deltaTime;
                 LapsedTime += Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.W))
             {
-                transform.position += direction3 * Time.deltaTime;
+                transform.position += direction3 * m_velRun* Time.deltaTime;
                 LapsedTime += Time.deltaTime;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                transform.position += direction4 * Time.deltaTime;
+                transform.position += direction4 * m_velRun * Time.deltaTime;
                 LapsedTime += Time.deltaTime;
             }
         }
@@ -63,7 +63,6 @@ public class Run : State
             m_statemachine.SetState(m_statemachine.m_Walk);
         }
     }
-
     public override void OnExit()
     {
         
