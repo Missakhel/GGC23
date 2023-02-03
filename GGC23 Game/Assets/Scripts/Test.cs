@@ -20,13 +20,13 @@ public class Test : MonoBehaviour
     void Update()
     {
         RotateTowardsMouse();
-        Debug.Log("Hola");
+        //Debug.Log("Hola");
     }
     private void RotateTowardsMouse()
     {
-        m_objective = m_camera.ScreenToWorldPoint(Input.mousePosition);
-        float m_anlgeRadians = Mathf.Atan2(m_objective.y - transform.position.y, m_objective.x - transform.position.x);
-        float m_angleDegrees = (180 / Mathf.PI) * m_anlgeRadians - 90;
-        transform.rotation = Quaternion.Euler(0, 0, m_angleDegrees);
+        //m_objective = m_camera.ScreenToWorldPoint(Input.mousePosition);
+        //float m_anlgeRadians = Mathf.Atan2(m_objective.y - transform.position.y, m_objective.x - transform.position.x);
+        //float m_angleDegrees = (180 / Mathf.PI) * m_anlgeRadians - 90;
+        //transform.rotation = Quaternion.Euler(0, 0, m_angleDegrees);
     }
 }

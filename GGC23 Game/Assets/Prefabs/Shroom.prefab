@@ -181,6 +181,8 @@ GameObject:
   - component: {fileID: 8864151419488917423}
   - component: {fileID: 8864151419488917420}
   - component: {fileID: 8864151419488917421}
+  - component: {fileID: 2272633448268063479}
+  - component: {fileID: 3721789235845560831}
   m_Layer: 0
   m_Name: Shroom
   m_TagString: Untagged
@@ -306,5 +308,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748ad544144c8454da544a9a9a06cac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_camera: {fileID: 0}
   m_testVar: 5
   m_testInt: 0
+--- !u!114 &2272633448268063479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864151419488917416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 983430f998ca3ee40a7cf351fc88d7cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_child: {fileID: 8864151419488917416, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+--- !u!114 &3721789235845560831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864151419488917416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb91d26f41723d84c9e206bc7e0abe20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_current: {fileID: 0}
+  m_Walk: {fileID: 0}
+  m_Run: {fileID: 0}
+  m_Idle: {fileID: 0}
+  Rigid: {fileID: 0}

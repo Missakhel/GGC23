@@ -5,6 +5,8 @@ using UnityEngine;
 public class shroom : MonoBehaviour
 {
   public GameObject m_child;
+
+  public float m_damageForse = 1;
   // Start is called before the first frame update
   void Start()
   {
@@ -19,6 +21,15 @@ public class shroom : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col)
   {
-    Instantiate(m_child, transform.position, transform.rotation);
+    if(col.name == "Spawn Area")
+    {
+      return;
+    }
+
+
+    var vel3D = (transform.position - col.transform.position).normalized * m_damageForse;
+    GetComponent<Rigidbody2D>().velocity = new Vector2(vel3D.x,vel3D.y);
+
+    //Instantiate(m_child, transform.position, transform.rotation);
   }
 }

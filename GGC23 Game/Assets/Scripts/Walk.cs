@@ -8,7 +8,7 @@ public class Walk : State
     Vector3 direction2;
     Vector3 direction3;
     Vector3 direction4;
-    [SerializeField] float m_vel =0f;
+    [SerializeField] public float m_vel =2f;
     // Start is called before the first frame update
     public override void OnEnter()
     {

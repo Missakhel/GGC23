@@ -9,7 +9,7 @@ public class Run : State
     Vector3 direction2;
     Vector3 direction3;
     Vector3 direction4;
-    [SerializeField] float m_velRun = 0f;
+    [SerializeField] float m_velRun = 12f;
     // Start is called before the first frame update
     public override void OnEnter()
     {

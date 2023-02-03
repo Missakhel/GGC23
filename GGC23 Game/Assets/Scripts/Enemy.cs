@@ -32,4 +32,13 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+  void OnTriggerEnter2D(Collider2D col)
+  {
+    if (col.gameObject.CompareTag("Projectile"))
+    {
+      Destroy(gameObject);
+      Destroy(col);
+    }
+  }
 }
