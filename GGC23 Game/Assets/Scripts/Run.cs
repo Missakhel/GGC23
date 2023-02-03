@@ -23,7 +23,6 @@ public class Run : State
     // Update is called once per frame
     public override void OnUpdate()
     {
-
         if (Input.GetKey(KeyCode.LeftShift))
         {
             if (Input.GetKey(KeyCode.D))
@@ -64,7 +63,6 @@ public class Run : State
             m_statemachine.SetState(m_statemachine.m_Walk);
         }
     }
-
     public override void OnExit()
     {
         

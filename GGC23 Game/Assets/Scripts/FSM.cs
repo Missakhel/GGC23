@@ -7,7 +7,6 @@ public class FSM : MonoBehaviour
 {
     //update llama al onupdate del estado actual
     // Start de la maquina para inicializar los estados
-
     public State m_current;
     public State m_Walk;
     public State m_Run;
