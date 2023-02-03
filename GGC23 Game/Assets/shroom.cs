@@ -21,11 +21,11 @@ public class shroom : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col)
   {
-    if(col.name == "Spawn Area")
+    if(col.name == "Spawn Area" || col.gameObject.CompareTag("Projectile"))
     {
       return;
     }
-
+    Debug.Log(col.name + " shroomed");
 
     var vel3D = (transform.position - col.transform.position).normalized * m_damageForse;
     GetComponent<Rigidbody2D>().velocity = new Vector2(vel3D.x,vel3D.y);

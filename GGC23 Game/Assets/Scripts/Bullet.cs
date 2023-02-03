@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_objective = m_camera.ScreenToWorldPoint(Input.mousePosition);
-        m_rigidbody = GetComponent<Rigidbody2D>();
+        //m_objective = m_camera.ScreenToWorldPoint(Input.mousePosition);
+        //m_rigidbody = GetComponent<Rigidbody2D>();
     }
 }

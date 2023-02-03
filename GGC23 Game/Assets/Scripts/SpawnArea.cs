@@ -20,7 +20,7 @@ public class SpawnArea : MonoBehaviour
     private void Awake()
     {
         m_bc = GetComponent<BoxCollider2D>();
-        m_scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TextMeshProUGUI>();
+        //m_scoreText = GameObject.FindGameObjectWithTag("Score").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -38,6 +38,6 @@ public class SpawnArea : MonoBehaviour
             m_currentSpawnTime -= Time.deltaTime;
         }
 
-        m_scoreText.text = m_currentScore.ToString();
+        //m_scoreText.text = m_currentScore.ToString();
     }
 }

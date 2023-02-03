@@ -33,7 +33,7 @@ public class CharRotation : MonoBehaviour
         {
             GameObject m_bullet = Instantiate(m_bulletPrefab);
             m_bullet.transform.position = m_spawner.position;
-            m_bullet.GetComponent<Rigidbody>().velocity = m_spawner.position - transform.position;
+            m_bullet.GetComponent<Rigidbody2D>().velocity = m_spawner.position - transform.position;
             Destroy(m_bullet, 5f);
         }
     }
