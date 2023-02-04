@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4480495790309100712}
   - component: {fileID: 230176888479293955}
   - component: {fileID: 6506482992957396390}
+  - component: {fileID: 9052791265956404026}
   m_Layer: 0
   m_Name: miniShroom
   m_TagString: Untagged
@@ -169,3 +170,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_toFollow: {fileID: 0}
   m_distance: 6
+  m_arrived: 0
+  m_debugPoint: {fileID: 0}
+--- !u!114 &9052791265956404026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8864151419488917416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef2507b9c1d4e54bbde0a8dfe115a16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dir: {x: 0, y: 0}
+  m_sporeReviveTime: 0
+  m_spore: {fileID: 0}
