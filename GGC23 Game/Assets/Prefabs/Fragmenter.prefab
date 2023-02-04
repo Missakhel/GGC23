@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 395737422739876770}
   - component: {fileID: 25242565302014841}
   - component: {fileID: 6039265588537871173}
+  - component: {fileID: 5420180377453861006}
+  - component: {fileID: 6819189970320439906}
   m_Layer: 0
   m_Name: Fragmenter
   m_TagString: Untagged
@@ -133,7 +135,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6039265588537871173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +148,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98f5a6f2aba73e48a399a9050426241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 0
   m_score: 75
-  m_divideLimit: 3
+  m_originalPrefabScale: {x: 0, y: 0, z: 0}
+  m_divideLimit: 2
   m_divideCount: 3
-  m_speedMultiplier: 5
-  m_scaleDivider: 0.75
+  m_childCoefficient: 0.85
   m_scaleTimer: 1
+  m_timeRange: {x: 0, y: 0}
+--- !u!114 &5420180377453861006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081478611364516685}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d51558c189a30459f3a2056dfcfb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_wantedVel: {x: 1, y: 0}
+  m_maxVel: 1.5
+  m_maxAceleration: 6
+--- !u!114 &6819189970320439906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081478611364516685}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6227536ec2381dd448bc7bbb208e1c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_wanderRadius: 90
+  m_wanderDistance: 12
+  m_wanderTime: 0.5

@@ -5,10 +5,9 @@ using UnityEngine;
 public class Fragmenter : MonoBehaviour
 {
   // Start is called before the first frame update
-  [HideInInspector] public float m_speed;
   public int m_score;
 
-  Vector3 m_originalPrefabScale;
+  public Vector3 m_originalPrefabScale;
   public int m_divideLimit = 3;
   public int m_divideCount = 3;
   public float m_childCoefficient = .75f;
@@ -26,6 +25,8 @@ public class Fragmenter : MonoBehaviour
     m_originalPrefabScale = transform.localScale;
     transform.localScale = Vector3.zero;
     GetComponent<BoxCollider2D>().enabled = false;
+    GetComponent<Wander>().enabled = false;
+    GetComponent<Steering>().enabled = false;
   }
 
   // Update is called once per frame
@@ -34,6 +35,8 @@ public class Fragmenter : MonoBehaviour
     if (m_currentScaleTime <= 0)
     {
       GetComponent<BoxCollider2D>().enabled = true;
+      GetComponent<Wander>().enabled = true;
+      GetComponent<Steering>().enabled = true;
       //Code goes here.
     }
     else
@@ -53,8 +56,8 @@ public class Fragmenter : MonoBehaviour
         for (int i = 0; i < m_divideCount; i++)
         {
           m_instanceChild = Instantiate(gameObject, transform.position, Quaternion.identity);
-          m_instanceChild.gameObject.transform.localScale *= m_childCoefficient;
-          m_instanceChild.GetComponent<Fragmenter>().m_speed *= 2 - m_childCoefficient;
+          m_instanceChild.GetComponent<Fragmenter>().m_originalPrefabScale *= m_childCoefficient;
+          m_instanceChild.GetComponent<Steering>().m_maxVel *= 2 - m_childCoefficient;
           m_instanceChild.GetComponent<Fragmenter>().m_score *= 2 - (int)m_childCoefficient;
           m_instanceChild.GetComponent<Fragmenter>().m_divideLimit --;
         }
