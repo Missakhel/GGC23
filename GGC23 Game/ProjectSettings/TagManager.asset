@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Enemy
   - Score
+  - SafeArea
+  - Wall
   layers:
   - Default
   - TransparentFX

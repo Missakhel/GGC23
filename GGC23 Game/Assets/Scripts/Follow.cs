@@ -10,7 +10,9 @@ public class Follow : MonoBehaviour
 
   public float m_arrived;
 
-  public GameObject m_debugPoint;
+  public float m_angle;
+
+  //public GameObject m_debugPoint;
   // Start is called before the first frame update
   void Start()
   {
@@ -23,14 +25,22 @@ public class Follow : MonoBehaviour
     var pos2D = new Vector2(m_toFollow.transform.position.x, m_toFollow.transform.position.y);
     var myPos2D = new Vector2(transform.position.x, transform.position.y);
     var vel2D = new Vector2(m_toFollow.GetComponent<Rigidbody2D>().velocity.x, m_toFollow.GetComponent<Rigidbody2D>().velocity.y);
-    var playerVel = new Vector2(m_toFollow.GetComponent<Walk>().m_dir.x, m_toFollow.GetComponent<Walk>().m_dir.y);
+    var playerDir3d = m_toFollow.GetComponent<CharRotation>().m_spawner.position- m_toFollow.transform.position;
+    var playerDir2d = new Vector2(playerDir3d.x, playerDir3d.y);
     //Debug.Log(vel2D);
     //gameObject.transform.position = pos2D - vel2D.normalized * m_distance;
-    var placeToGo = pos2D - playerVel.normalized * m_distance;
+
+    var originalDir = playerDir2d.normalized;
+
+    var dir = new Vector2(originalDir.x * Mathf.Cos(m_angle) - originalDir.y * Mathf.Sin(m_angle), originalDir.x * Mathf.Sin(m_angle) + originalDir.y * Mathf.Cos(m_angle));
+
+    var placeToGo = pos2D - dir * m_distance;
+
+    //placeToGo.
     //m_debugPoint.transform.position = placeToGo;
     var deltaPos = placeToGo - myPos2D;
     //m_debugPoint.transform.position = deltaPos;
-    Debug.Log(deltaPos.magnitude + " " + m_arrived);
+    //Debug.Log(deltaPos.magnitude + " " + m_arrived);
     if(deltaPos.magnitude > m_arrived)
     {
       //Debug.Log("going");
