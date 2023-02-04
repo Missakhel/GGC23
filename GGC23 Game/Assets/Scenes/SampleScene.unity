@@ -799,6 +799,7 @@ MonoBehaviour:
   m_enemyPrefab: {fileID: 3357112550474264483, guid: 202432aedab2d114694bde1b821f9a96, type: 3}
   m_spawnTimer: 3
   m_enemySpeed: 0.01
+  m_enemyScale: 1
 --- !u!61 &1480304792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1590,6 +1591,10 @@ PrefabInstance:
     - target: {fileID: 8864151419488917420, guid: ad01fe008391767418069bcf7fbed198, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864151419488917421, guid: ad01fe008391767418069bcf7fbed198, type: 3}
+      propertyPath: m_testInt
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8864151419488917422, guid: ad01fe008391767418069bcf7fbed198, type: 3}
       propertyPath: m_RootOrder

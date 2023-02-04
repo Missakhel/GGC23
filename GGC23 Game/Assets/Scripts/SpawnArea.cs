@@ -17,6 +17,7 @@ public class SpawnArea : MonoBehaviour
     public float m_spawnTimer = 10.0f; //Counts the time it will take the enemy to spawn again;
     public float m_enemySpeed = .1f;
     float m_currentSpawnTime;
+    public float m_enemyScale = 1f;
 
     private void Awake()
     {
@@ -31,6 +32,7 @@ public class SpawnArea : MonoBehaviour
         {
             m_spawnPosition = new Vector2(Random.RandomRange(0, m_bc.size.x) - m_bc.size.x / 2, Random.RandomRange(0, m_bc.size.y) - m_bc.size.y / 2);
             m_enemyInstance = Instantiate(m_enemyPrefab, m_spawnPosition, Quaternion.identity);
+            m_enemyInstance.GetComponent<Enemy>().transform.localScale *= m_enemyScale;
             m_enemyInstance.GetComponent<Enemy>().m_speed = m_enemySpeed;
             m_currentSpawnTime = m_spawnTimer;
         }

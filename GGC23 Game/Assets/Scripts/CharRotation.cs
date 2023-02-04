@@ -10,6 +10,7 @@ public class CharRotation : MonoBehaviour
     public Transform m_spawner;
     public float m_bulletLife = 5f;
     public float m_bulletVelocity = 5f;
+    public float m_bulletSize = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class CharRotation : MonoBehaviour
         {
             GameObject m_bullet = Instantiate(m_bulletPrefab);
             m_bullet.transform.position = m_spawner.position;
+            m_bullet.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
             m_bullet.GetComponent<Rigidbody2D>().velocity = (m_spawner.position - transform.position)*m_bulletVelocity;
             Destroy(m_bullet, m_bulletLife);
         }
