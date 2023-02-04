@@ -8,6 +8,8 @@ public class Shroom : MonoBehaviour
   public float m_damageForse = 1;
 
   public GameObject m_child;
+
+  bool m_farFromParent = false;
   // Start is called before the first frame update
   void Start()
   {
@@ -22,18 +24,25 @@ public class Shroom : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col)
   {
-    //Debug.Log("collided");
-    if (col.name == "Spawn Area" || col.gameObject.CompareTag("Projectile") || col.gameObject.CompareTag("Shroom"))
+    
+    
+    if (!col.gameObject.CompareTag("Enemy"))
     {
       return;
     }
-    Debug.Log(col);
-    //Debug.Log("enemy hitted player");
+    
     var vel3D = (transform.position - col.transform.position).normalized * m_damageForse;
-    var Vel2D = new Vector2(vel3D.x, vel3D.y);
-    GetComponent<Rigidbody2D>().velocity = Vel2D;
-    m_child.GetComponent<Follow>().enabled = false;
-    m_child.GetComponent<Wander>().enabled = true;
+    var vel2D = new Vector2(vel3D.x, vel3D.y);
+    GetComponent<Rigidbody2D>().velocity = vel2D;
+    Debug.Log("is alive? " + m_child.GetComponent<Live>().isDead());
+    if (!m_child.GetComponent<Live>().isDead())
+    {
+      Debug.Log("went away");
+      m_child.GetComponent<Follow>().enabled = false;
+      m_child.GetComponent<Wander>().enabled = true;
+      m_child.GetComponent<Wander>().changeVel(vel2D);
+    }
+
     
     //var child = Instantiate(m_child, transform.position, transform.rotation);
     //child.GetComponent<MiniShroom>().m_dir = Vel2D;

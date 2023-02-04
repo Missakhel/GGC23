@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
+using System;
 public class Live : MonoBehaviour
 {
   public float hp;
@@ -20,12 +21,25 @@ public class Live : MonoBehaviour
   public void Damage(float dam)
   {
     hp -= dam;
-    if (hp <= 0)
+    if (isDead())
     {
-      gameObject.GetComponent<CircleCollider2D>().enabled = false;
-      Destroy(gameObject);
+      if (onDie != null)
+      {
+        onDie();
+      }
+      
+      //Destroy(gameObject);
     }
   }
+
+  public bool isDead()
+  {
+    return hp <= 0;
+  }
+
+  public event Action onDie;
+
+
 }
 
 
