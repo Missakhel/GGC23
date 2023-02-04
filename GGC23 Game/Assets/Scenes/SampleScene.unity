@@ -630,6 +630,8 @@ MonoBehaviour:
   m_spawner: {fileID: 2054238625}
   m_bulletLife: 5
   m_bulletVelocity: 5
+  m_bulletSize: 1
+  m_grados: 1
 --- !u!1 &1098270889
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +841,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1491138555
 PrefabInstance:
@@ -996,7 +998,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1857187577
 PrefabInstance:
@@ -1395,7 +1397,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974703622
 GameObject:
@@ -1492,7 +1494,7 @@ RectTransform:
   - {fileID: 191921082}
   - {fileID: 1098270890}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1532,9 +1534,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864151419488917421, guid: ad01fe008391767418069bcf7fbed198, type: 3}
+      propertyPath: m_spawner
+      value: 
+      objectReference: {fileID: 2054238625}
+    - target: {fileID: 8864151419488917421, guid: ad01fe008391767418069bcf7fbed198, type: 3}
       propertyPath: m_testInt
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8864151419488917421, guid: ad01fe008391767418069bcf7fbed198, type: 3}
+      propertyPath: m_spawnTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864151419488917421, guid: ad01fe008391767418069bcf7fbed198, type: 3}
+      propertyPath: m_bulletPrefab
+      value: 
+      objectReference: {fileID: 1322869957691571724, guid: 65f0ec4c15d291e4f924b2e0c4a988ad, type: 3}
     - target: {fileID: 8864151419488917422, guid: ad01fe008391767418069bcf7fbed198, type: 3}
       propertyPath: m_RootOrder
       value: 3
