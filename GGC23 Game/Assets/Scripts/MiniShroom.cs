@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class MiniShroom : MonoBehaviour
 {
-  
-
-  public Vector2 m_dir;
   // Start is called before the first frame update
   void Start()
   {
@@ -22,5 +19,29 @@ public class MiniShroom : MonoBehaviour
   public void setDir(Vector2 dir)
   {
     //GetComponent<Rigidbody2D>().velocity = 
+  }
+
+  public void OnTriggerEnter2D(Collider2D col)
+  {
+    
+    if (col.gameObject.CompareTag("Wall"))
+    {
+      var normal = col.GetComponent<Wall>().m_normal;
+      var newVel = Vector3.Reflect(GetComponent<Rigidbody2D>().velocity, normal);
+      if (GetComponent<Wander>().enabled)
+      {
+        GetComponent<Wander>().changeVel(newVel);
+      }
+    }
+    if (col.gameObject.CompareTag("Enemy"))
+    {
+      GetComponent<Live>().Damage(1);
+    }
+    if (col.gameObject.CompareTag("Shroom"))
+    {
+      Debug.Log("returned to parent");
+      GetComponent<Follow>().enabled = true;
+      GetComponent<Wander>().enabled = false;
+    }
   }
 }

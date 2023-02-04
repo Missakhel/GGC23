@@ -30,7 +30,7 @@ public class Follow : MonoBehaviour
     //m_debugPoint.transform.position = placeToGo;
     var deltaPos = placeToGo - myPos2D;
     //m_debugPoint.transform.position = deltaPos;
-    Debug.Log(deltaPos.magnitude + " " + m_arrived);
+    //Debug.Log(deltaPos.magnitude + " " + m_arrived);
     if(deltaPos.magnitude > m_arrived)
     {
       //Debug.Log("going");
