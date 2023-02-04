@@ -8,6 +8,7 @@ public class Walk : State
     Vector3 direction2;
     Vector3 direction3;
     Vector3 direction4;
+    public Vector3 m_dir;
     [SerializeField] public float m_vel =2f;
     // Start is called before the first frame update
     public override void OnEnter()
@@ -21,41 +22,17 @@ public class Walk : State
     // Update is called once per frame
     public override void OnUpdate()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += direction * m_vel *Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += direction2 * m_vel *Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.position += direction3 * m_vel * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += direction4 * m_vel * Time.deltaTime;
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            m_statemachine.SetState(m_statemachine.m_Idle);
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            m_statemachine.SetState(m_statemachine.m_Idle);
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            m_statemachine.SetState(m_statemachine.m_Idle);
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            m_statemachine.SetState(m_statemachine.m_Idle);
-        }
+        float m_moveX = Input.GetAxisRaw("Horizontal");
+        float m_moveY = Input.GetAxisRaw("Vertical");
+        m_dir = new Vector3(m_moveX, m_moveY);
+        transform.position += m_dir * m_vel*Time.deltaTime;
         if (Input.GetKey(KeyCode.LeftShift))
         {
             m_statemachine.SetState(m_statemachine.m_Run);
+        }
+        if(m_dir == Vector3.zero)
+        {
+            m_statemachine.SetState(m_statemachine.m_Idle);
         }
     }
     public override void OnExit()

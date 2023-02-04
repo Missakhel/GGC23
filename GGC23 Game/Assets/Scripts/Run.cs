@@ -9,6 +9,7 @@ public class Run : State
     Vector3 direction2;
     Vector3 direction3;
     Vector3 direction4;
+    public Vector3 m_dir;
     [SerializeField] float m_velRun = 12f;
     // Start is called before the first frame update
     public override void OnEnter()
@@ -23,44 +24,17 @@ public class Run : State
     // Update is called once per frame
     public override void OnUpdate()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            if (Input.GetKey(KeyCode.D))
-            {
-                transform.position += direction2 * m_velRun* Time.deltaTime;
-                LapsedTime += Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.position += direction * m_velRun* Time.deltaTime;
-                LapsedTime += Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.position += direction3 * m_velRun* Time.deltaTime;
-                LapsedTime += Time.deltaTime;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                transform.position += direction4 * m_velRun * Time.deltaTime;
-                LapsedTime += Time.deltaTime;
-            }
-        }
-        if(Input.GetKey(KeyCode.D))
+            float m_moveX = Input.GetAxisRaw("Horizontal");
+            float m_moveY = Input.GetAxisRaw("Vertical");
+            m_dir = new Vector3(m_moveX, m_moveY);
+            transform.position += m_dir * m_velRun * Time.deltaTime;
+        if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             m_statemachine.SetState(m_statemachine.m_Walk);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (m_dir == Vector3.zero)
         {
-            m_statemachine.SetState(m_statemachine.m_Walk);
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            m_statemachine.SetState(m_statemachine.m_Walk);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            m_statemachine.SetState(m_statemachine.m_Walk);
+            m_statemachine.SetState(m_statemachine.m_Idle);
         }
     }
     public override void OnExit()
