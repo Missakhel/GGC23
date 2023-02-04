@@ -10,6 +10,8 @@ public class Follow : MonoBehaviour
 
   public float m_arrived;
 
+  public float m_angle;
+
   //public GameObject m_debugPoint;
   // Start is called before the first frame update
   void Start()
@@ -27,7 +29,14 @@ public class Follow : MonoBehaviour
     var playerDir2d = new Vector2(playerDir3d.x, playerDir3d.y);
     //Debug.Log(vel2D);
     //gameObject.transform.position = pos2D - vel2D.normalized * m_distance;
-    var placeToGo = pos2D - playerDir2d.normalized * m_distance;
+
+    var originalDir = playerDir2d.normalized;
+
+    var dir = new Vector2(originalDir.x * Mathf.Cos(m_angle) - originalDir.y * Mathf.Sin(m_angle), originalDir.x * Mathf.Sin(m_angle) + originalDir.y * Mathf.Cos(m_angle));
+
+    var placeToGo = pos2D - dir * m_distance;
+
+    //placeToGo.
     //m_debugPoint.transform.position = placeToGo;
     var deltaPos = placeToGo - myPos2D;
     //m_debugPoint.transform.position = deltaPos;

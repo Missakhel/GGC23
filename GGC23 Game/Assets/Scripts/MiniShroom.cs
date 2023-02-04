@@ -8,6 +8,7 @@ public class MiniShroom : MonoBehaviour
   public float m_sporeReviveTime;
   public GameObject m_spore;
   public GameObject m_deadZone;
+  public GameObject m_parent;
   bool farFromParent = false;
   // Start is called before the first frame update
   void Start()
@@ -55,6 +56,8 @@ public class MiniShroom : MonoBehaviour
       Debug.Log("returned to parent " + col.name);
       GetComponent<Follow>().enabled = true;
       GetComponent<Wander>().enabled = false;
+      GetComponent<CircleCollider2D>().enabled = false;
+      m_parent.GetComponent<Shroom>().addChild(gameObject);
     }
 
     
@@ -74,6 +77,7 @@ public class MiniShroom : MonoBehaviour
     m_spore.transform.position = transform.position;
     GetComponent<Follow>().enabled = false;
     GetComponent<Wander>().enabled = false;
+    GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
     transform.position = m_deadZone.transform.position;
   }
   public void OnRevive()
