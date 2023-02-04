@@ -14,8 +14,9 @@ public class SpawnArea : MonoBehaviour
     GameObject m_enemyInstance;
 
     public float m_timer = 3.0f;
-    public float m_enemySpeed = .1f;
+    public float m_enemySpeed = 1.0f;
     float m_currentSpawnTime;
+    public float m_enemyScale = 1f;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class SpawnArea : MonoBehaviour
             m_spawnPosition = new Vector2(Random.RandomRange(0, m_bc.size.x) - m_bc.size.x / 2, Random.RandomRange(0, m_bc.size.y) - m_bc.size.y / 2);
             m_enemyInstance = Instantiate(m_enemyPrefab, m_spawnPosition, Quaternion.identity);
             m_enemyInstance.GetComponent<Enemy>().speed = m_enemySpeed;
+            m_enemyInstance.GetComponent<Enemy>().transform.localScale *= m_enemyScale;
         }
         else
         {

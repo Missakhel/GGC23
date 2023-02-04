@@ -138,3 +138,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_camera: {fileID: 0}
   m_speed: 3
+  m_bulletSize: 1
