@@ -20,7 +20,12 @@ public class Spore : MonoBehaviour
 
   }
 
-  private void OnTriggerStay2D(Collider2D collision)
+  //private void OnTriggerEnter2D(Collider2D collision)
+  //{
+  //  Debug.Log("spored");
+  //}
+
+  void OnTriggerStay2D(Collider2D collision)
   {
     if (collision.gameObject.CompareTag("SafeArea"))
     {
@@ -30,8 +35,9 @@ public class Spore : MonoBehaviour
       }
       else
       {
-        Instantiate(m_miniMushroom, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        m_miniMushroom.GetComponent<MiniShroom>().OnRevive();
+        //Instantiate(m_miniMushroom, transform.position, Quaternion.identity);
+        //Destroy(gameObject);
       }
     }
   }
