@@ -9,8 +9,9 @@ public class SpawnArea : MonoBehaviour
     [HideInInspector] public int m_currentScore = 0;
     BoxCollider2D m_bc;
     Vector2 m_spawnPosition;
-    Vector3 m_prefaOriginalScale;
-    public GameObject m_enemyPrefab;
+  public List<GameObject> m_enemyList = new List<GameObject>();
+  //public GameObject m_enemyPrefab;
+  int m_enemyIndex;
     TextMeshProUGUI m_scoreText;
     GameObject m_enemyInstance;
 
@@ -31,7 +32,9 @@ public class SpawnArea : MonoBehaviour
         if(m_currentSpawnTime <= 0)
         {
             m_spawnPosition = new Vector2(Random.RandomRange(0, m_bc.size.x) - m_bc.size.x / 2, Random.RandomRange(0, m_bc.size.y) - m_bc.size.y / 2);
-            m_enemyInstance = Instantiate(m_enemyPrefab, m_spawnPosition, Quaternion.identity);
+      Debug.Log(m_enemyList.Count.ToString());      
+      m_enemyIndex = Random.RandomRange(0, m_enemyList.Count);
+            m_enemyInstance = Instantiate(m_enemyList[m_enemyIndex], m_spawnPosition, Quaternion.identity);
             m_enemyInstance.GetComponent<Enemy>().transform.localScale *= m_enemyScale;
             m_enemyInstance.GetComponent<Enemy>().m_speed = m_enemySpeed;
             m_currentSpawnTime = m_spawnTimer;

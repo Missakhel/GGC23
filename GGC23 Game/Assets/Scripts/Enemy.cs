@@ -56,8 +56,8 @@ public class Enemy : MonoBehaviour
     if (col.gameObject.CompareTag("Projectile"))
     {
       FindObjectOfType<SpawnArea>().m_currentScore += m_score;
-      Destroy(gameObject);
       Destroy(col);
+      Destroy(gameObject);
     }
   }
 }
