@@ -10,11 +10,13 @@ public class MiniShroom : MonoBehaviour
   public GameObject m_deadZone;
   public GameObject m_parent;
   bool farFromParent = false;
+  
   // Start is called before the first frame update
   void Start()
   {
     GetComponent<Live>().onDie += OnDie;
     m_spore.GetComponent<Spore>().m_miniMushroom = gameObject;
+    m_parent.GetComponent<Shroom>().onDie += kill;
     //GetComponent<Rigidbody2D>().velocity = m_dir.normalized * m_maxVel;
   }
 
@@ -86,5 +88,20 @@ public class MiniShroom : MonoBehaviour
     transform.position = m_spore.transform.position;
     GetComponent<Follow>().enabled = true;
     m_spore.transform.position = m_deadZone.transform.position;
+  }
+
+  public void kill()
+  {
+    Destroy(m_spore);
+    Destroy(gameObject);
+  }
+
+  public void activateCollider()
+  {
+    GetComponent<CircleCollider2D>().enabled = true;
+  }
+  public void activateColliderAfterTime(float time)
+  {
+    Invoke("activateCollider", time);
   }
 }
