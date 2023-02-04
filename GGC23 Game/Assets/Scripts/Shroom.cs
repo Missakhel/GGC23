@@ -8,12 +8,22 @@ public class Shroom : MonoBehaviour
   public float m_damageForse = 1;
 
   public List<GameObject> m_childs;
+  SpriteRenderer m_headRenderer;
+  SpriteRenderer m_bodyRenderer;
+  public Sprite m_spriteS;
+  public Sprite m_spriteSE;
+  public Sprite m_spriteE;
+  public Sprite m_spriteNE;
+  public Sprite m_spriteN;
+  public Sprite m_spriteNW;
+  public Sprite m_spriteW;
+  public Sprite m_spriteSW;
 
   //bool m_farFromParent = false;
   // Start is called before the first frame update
-  void Start()
+  void Awake()
   {
-    
+    m_headRenderer = GameObject.FindGameObjectWithTag("Head Renderer").GetComponent<SpriteRenderer>();
   }
 
   // Update is called once per frame
