@@ -827,6 +827,7 @@ MonoBehaviour:
   m_enemyPrefab: {fileID: 3357112550474264483, guid: 202432aedab2d114694bde1b821f9a96, type: 3}
   m_spawnTimer: 3
   m_enemySpeed: 0.01
+  m_enemyScale: 1
 --- !u!61 &1480304792
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1592,6 +1593,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6792136250381708321, guid: ad01fe008391767418069bcf7fbed198, type: 3}
   m_PrefabInstance: {fileID: 8864151419610464802}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5541164577412154661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543613792126291239, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405558918393478012, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_Name
+      value: Spore
+      objectReference: {fileID: 0}
+    - target: {fileID: 8870418472789576939, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
+      propertyPath: m_miniMushroom
+      value: 
+      objectReference: {fileID: 8864151419488917416, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 446599dc54e624944bdd49235076fcf0, type: 3}
 --- !u!1001 &8864151419610464802
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1622,6 +1684,10 @@ PrefabInstance:
     - target: {fileID: 8864151419488917420, guid: ad01fe008391767418069bcf7fbed198, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8864151419488917421, guid: ad01fe008391767418069bcf7fbed198, type: 3}
+      propertyPath: m_testInt
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8864151419488917422, guid: ad01fe008391767418069bcf7fbed198, type: 3}
       propertyPath: m_RootOrder
