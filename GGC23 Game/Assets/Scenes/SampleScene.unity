@@ -1021,7 +1021,7 @@ MonoBehaviour:
   - {fileID: 3357112550474264483, guid: 202432aedab2d114694bde1b821f9a96, type: 3}
   - {fileID: 5804461627369969208, guid: a1ee7e65604248c439f42c835c94c024, type: 3}
   - {fileID: 3081478611364516685, guid: 87aaa96caf303d141bf9be8e191a034d, type: 3}
-  m_spawnTimer: 3
+  m_spawnTimer: 5
   m_enemySpeed: 0.01
   m_enemyScale: 1
 --- !u!61 &1480304792

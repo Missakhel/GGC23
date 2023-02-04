@@ -54,7 +54,12 @@ public class Turret : MonoBehaviour
         transform.localScale = m_originalPrefabScale * ((m_scaleTimer - m_currentScaleTime) / m_scaleTimer);
         m_currentScaleTime -= Time.deltaTime;
       }
-    }
+
+      if (!m_target)
+      {
+        Destroy(gameObject);
+      }
+  }
 
   void OnTriggerEnter2D(Collider2D col)
   {

@@ -30,7 +30,11 @@ public class Enemy : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    
+    if (m_target == null)
+    {
+      Destroy(gameObject);
+    }
+
     if (m_currentScaleTime <= 0)
     {
       GetComponent<CircleCollider2D>().enabled = true;
