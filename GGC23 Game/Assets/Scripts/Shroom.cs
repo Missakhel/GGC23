@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class Shroom : MonoBehaviour
 {
 
@@ -30,7 +30,7 @@ public class Shroom : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col)
   {
-
+    return;
     //if (col.gameObject.CompareTag("Wall"))
     //{
     //  GetComponent<Rigidbody2D>().get
@@ -45,6 +45,55 @@ public class Shroom : MonoBehaviour
     GetComponent<Rigidbody2D>().velocity = vel2D;
 
     foreach(var child in m_childs)
+    {
+      if (!child.GetComponent<Live>().isDead())
+      {
+        Debug.Log("went away");
+        child.GetComponent<Follow>().enabled = false;
+        child.GetComponent<Wander>().enabled = true;
+        child.GetComponent<Wander>().changeVel(vel2D);
+        //child.GetComponent<CircleCollider2D>().enabled = true;
+        child.GetComponent<MiniShroom>().activateColliderAfterTime(2);
+        m_childs.Remove(child);
+        break;
+      }
+    }
+
+    foreach (var child in m_childs)
+    {
+      child.GetComponent<Follow>().m_angle = 0;
+    }
+
+
+    //var child = Instantiate(m_child, transform.position, transform.rotation);
+    //child.GetComponent<MiniShroom>().m_dir = Vel2D;
+    //child.GetComponent<MiniShroom>().setDir(Vel2D);
+  }
+
+  void OnCollisionEnter2D(Collision2D col)
+  {
+    
+    //return;
+    //if (col.gameObject.CompareTag("Wall"))
+    //{
+    //  GetComponent<Rigidbody2D>().get
+    //}
+    if (!col.gameObject.CompareTag("Enemy"))
+    {
+      return;
+    }
+
+    var vel3D = (transform.position - col.transform.position).normalized * m_damageForse;
+    var vel2D = new Vector2(vel3D.x, vel3D.y);
+    GetComponent<Rigidbody2D>().velocity = vel2D;
+    Debug.Log("reacted");
+
+    if(m_childs.Count == 0)
+    {
+      die();
+    }
+
+    foreach (var child in m_childs)
     {
       if (!child.GetComponent<Live>().isDead())
       {
@@ -81,5 +130,12 @@ public class Shroom : MonoBehaviour
       m_childs[0].GetComponent<Follow>().m_angle = -.5f;
     }
     m_childs.Add(child);
+  }
+
+  public event Action onDie;
+  public void die()
+  {
+    Destroy(gameObject);
+    onDie();
   }
 }

@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Score
   - SafeArea
+  - Wall
   layers:
   - Default
   - TransparentFX

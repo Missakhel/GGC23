@@ -32,8 +32,8 @@ public class SpawnArea : MonoBehaviour
         if(m_currentSpawnTime <= 0)
         {
             m_spawnPosition = new Vector2(Random.RandomRange(0, m_bc.size.x) - m_bc.size.x / 2, Random.RandomRange(0, m_bc.size.y) - m_bc.size.y / 2);
-            //Debug.Log(m_enemyList.Count.ToString());      
-            m_enemyIndex = Random.RandomRange(0, m_enemyList.Count);
+      //Debug.Log(m_enemyList.Count.ToString());      
+      m_enemyIndex = Random.RandomRange(0, m_enemyList.Count);
             m_enemyInstance = Instantiate(m_enemyList[m_enemyIndex], m_spawnPosition, Quaternion.identity);
             m_enemyInstance.GetComponent<Enemy>().transform.localScale *= m_enemyScale;
             m_enemyInstance.GetComponent<Enemy>().m_speed = m_enemySpeed;
