@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 0
-  m_score: 100
-  m_scaleTimer: 0.5
+  m_score: 2
+  m_scaleTimer: 1.5
