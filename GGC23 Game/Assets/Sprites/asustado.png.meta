@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 816be070ac34e97449e9993e17146938
+guid: 86b45ca243aae86488bf6124767b0e24
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,12 +105,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: caminadoatras_0
+      name: asustado_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 236
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -119,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 42136054a282b354a93cec5e631de06a
-      internalID: -823021702
+      spriteID: cb4d7fd9df274374c8119eebab8d5b5a
+      internalID: 741275591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: caminadoatras_1
+      name: asustado_1
       rect:
         serializedVersion: 2
-        x: 236
+        x: 256
         y: 0
-        width: 236
+        width: 256
         height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,50 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d82a0ccc46dcae243a1101849c09a5dd
-      internalID: 1847605515
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminadoatras_2
-      rect:
-        serializedVersion: 2
-        x: 472
-        y: 0
-        width: 236
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e87d3c06ec0640841bf24862c5ca5c01
-      internalID: 1621798857
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: caminadoatras_3
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 0
-        width: 236
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e379ed446bfd9a2428923a411821781c
-      internalID: 947442987
+      spriteID: 5dcccb5554fe84c4b9ab18a3ced11415
+      internalID: -425455233
       vertices: []
       indices: 
       edges: []
@@ -199,10 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      caminadoatras_0: -823021702
-      caminadoatras_1: 1847605515
-      caminadoatras_2: 1621798857
-      caminadoatras_3: 947442987
+      asustado_0: 741275591
+      asustado_1: -425455233
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
