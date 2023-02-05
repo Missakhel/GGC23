@@ -120,9 +120,9 @@ public class CharRotation : MonoBehaviour
     if (m_currentSpawnTime <= 0)
     {
       m_bulletInstance = Instantiate(m_bulletPrefab);
-      //m_bulletInstance.transform.position = m_spawner.position;
+      m_bulletInstance.transform.position = gameObject.transform.position;
       m_bulletInstance.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
-      Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * m_pointD.x), Mathf.Sin(Mathf.Deg2Rad * m_pointD.y)) * m_bulletVelocity;
+      //Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * m_pointD.x), Mathf.Sin(Mathf.Deg2Rad * m_pointD.y)) * m_bulletVelocity;
       m_bulletInstance.GetComponent<Rigidbody2D>().velocity = directionv* m_bulletVelocity;
       m_currentSpawnTime = m_spawnTimer;
       Destroy(m_bulletInstance, m_bulletLife);
