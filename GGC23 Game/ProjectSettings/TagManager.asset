@@ -10,8 +10,7 @@ TagManager:
   - Score
   - SafeArea
   - Wall
-  - Head Renderer
-  - Body Renderer
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

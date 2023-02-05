@@ -40,30 +40,28 @@ public class Shroom : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col)
   {
-    return;
-    //if (col.gameObject.CompareTag("Wall"))
-    //{
-    //  GetComponent<Rigidbody2D>().get
-    //}
-    if (!col.gameObject.CompareTag("Enemy"))
+    Debug.Log("triggered "+ col.gameObject.CompareTag("EnemyProjectile"));
+    if (!col.gameObject.CompareTag("EnemyProjectile"))
     {
       return;
     }
+    //return;
+    if (m_childs.Count == 0)
+    {
+      die();
+    }
     
-    var vel3D = (transform.position - col.transform.position).normalized * m_damageForse;
-    var vel2D = new Vector2(vel3D.x, vel3D.y);
-    GetComponent<Rigidbody2D>().velocity = vel2D;
-
-    foreach(var child in m_childs)
+    foreach (var child in m_childs)
     {
       if (!child.GetComponent<Live>().isDead())
       {
         Debug.Log("went away");
+        var vel3D = (child.transform.position - transform.position).normalized * m_damageForse;
+        var vel2D = new Vector2(vel3D.x, vel3D.y);
         child.GetComponent<Follow>().enabled = false;
         child.GetComponent<Wander>().enabled = true;
         child.GetComponent<Wander>().changeVel(vel2D);
-        //child.GetComponent<CircleCollider2D>().enabled = true;
-        child.GetComponent<MiniShroom>().activateColliderAfterTime(2);
+        child.GetComponent<CircleCollider2D>().enabled = true;
         m_childs.Remove(child);
         break;
       }
@@ -74,7 +72,7 @@ public class Shroom : MonoBehaviour
       child.GetComponent<Follow>().m_angle = 0;
     }
 
-
+    Destroy(col.gameObject);
     //var child = Instantiate(m_child, transform.position, transform.rotation);
     //child.GetComponent<MiniShroom>().m_dir = Vel2D;
     //child.GetComponent<MiniShroom>().setDir(Vel2D);
@@ -82,12 +80,13 @@ public class Shroom : MonoBehaviour
 
   void OnCollisionEnter2D(Collision2D col)
   {
-    
+
     //return;
     //if (col.gameObject.CompareTag("Wall"))
     //{
     //  GetComponent<Rigidbody2D>().get
     //}
+    Debug.Log("collided: " + col.gameObject.CompareTag("Enemy"));
     if (!col.gameObject.CompareTag("Enemy"))
     {
       return;

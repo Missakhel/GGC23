@@ -1023,9 +1023,42 @@ MonoBehaviour:
   - {fileID: 3357112550474264483, guid: 202432aedab2d114694bde1b821f9a96, type: 3}
   - {fileID: 5804461627369969208, guid: a1ee7e65604248c439f42c835c94c024, type: 3}
   - {fileID: 3081478611364516685, guid: 87aaa96caf303d141bf9be8e191a034d, type: 3}
-  m_spawnTimer: 5
+  m_spawnTimer: 10
   m_enemySpeed: 0.01
   m_enemyScale: 1
+  m_timeBetweenWaves: 1
+  m_timeBetweenEvents: 0.0625
+  m_waves:
+  - waveEvents:
+    - enemy: 0
+      type: 0
+      num: 2
+    timeBetweenEvents: 1
+  - waveEvents:
+    - enemy: 0
+      type: 1
+      num: 2
+    - enemy: 1
+      type: 0
+      num: 2
+    timeBetweenEvents: 0.5
+  - waveEvents:
+    - enemy: 1
+      type: 1
+      num: 2
+    - enemy: 2
+      type: 0
+      num: 2
+    timeBetweenEvents: 0.25
+  - waveEvents:
+    - enemy: 2
+      type: 0
+      num: 2
+    timeBetweenEvents: 0.125
+  m_waveNum: -1
+  m_totalEnemiesForSpawn: 0
+  m_totalEnemiesForKill: 0
+  m_waveInvoked: 0
 --- !u!61 &1480304792
 BoxCollider2D:
   m_ObjectHideFlags: 0
