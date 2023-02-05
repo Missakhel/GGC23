@@ -13,6 +13,7 @@ public class Fragmenter : MonoBehaviour
   public float m_childCoefficient = .75f;
   float m_currentScaleTime;
   public float m_scaleTimer = 1.0f;
+  public GameObject S_ColisionEnemigo;
 
   public Vector2 m_timeRange;
   Vector2 m_direction;
@@ -50,6 +51,7 @@ public class Fragmenter : MonoBehaviour
   {
     if (col.gameObject.CompareTag("Projectile"))
     {
+      Instantiate(S_ColisionEnemigo);
       FindObjectOfType<SpawnArea>().m_currentScore += m_score;
       if(m_divideLimit > 0)
       {

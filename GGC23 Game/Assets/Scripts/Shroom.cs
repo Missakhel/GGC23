@@ -8,6 +8,7 @@ public class Shroom : MonoBehaviour
 {
 
   public float m_damageForse = 1;
+  public float m_shakeMultiplier = 1;
 
   public List<GameObject> m_childs;
   public SpriteRenderer m_headRenderer;
@@ -68,6 +69,7 @@ public class Shroom : MonoBehaviour
       if (!child.GetComponent<Live>().isDead())
       {
         Debug.Log("went away");
+        Camera.main.GetComponent<CameraMovement>().StartStun(m_shakeMultiplier);
         var vel3D = (child.transform.position - transform.position).normalized * m_damageForse;
         var vel2D = new Vector2(vel3D.x, vel3D.y);
         child.GetComponent<Follow>().enabled = false;
@@ -108,8 +110,9 @@ public class Shroom : MonoBehaviour
     var vel2D = new Vector2(vel3D.x, vel3D.y);
     //GetComponent<Rigidbody2D>().velocity = vel2D;
     Debug.Log("reacted");
+    Camera.main.GetComponent<CameraMovement>().StartStun(m_shakeMultiplier);
 
-    if(m_childs.Count == 0)
+    if (m_childs.Count == 0)
     {
       die();
     }

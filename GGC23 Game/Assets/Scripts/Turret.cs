@@ -17,6 +17,7 @@ public class Turret : MonoBehaviour
   public float m_bulletSpeed = .5f;
   public float m_bulletLifetime = 2.5f;
   float m_currentCooldown;
+  public GameObject S_ColisionEnemigo;
 
   // Start is called before the first frame update
   void Awake()
@@ -35,11 +36,12 @@ public class Turret : MonoBehaviour
       if (m_currentScaleTime <= 0)
       {
         GetComponent<CircleCollider2D>().enabled = true;
-        transform.right = m_target.transform.position - transform.position;
+        //transform.right = m_target.transform.position - transform.position;
 
       if (m_currentCooldown <= 0)
         {
           m_bulletInstance = Instantiate(m_bulletPrefab, transform.position, transform.localRotation);
+          m_bulletInstance.transform.right = m_target.transform.position - transform.position;
           m_bulletInstance.GetComponent<Rigidbody2D>().velocity = (m_target.transform.position - transform.position).normalized * m_bulletSpeed;
           Destroy(m_bulletInstance, m_bulletLifetime);
           m_currentCooldown = m_shootCooldown;
@@ -65,6 +67,7 @@ public class Turret : MonoBehaviour
   {
     if (col.gameObject.CompareTag("Projectile"))
     {
+      Instantiate(S_ColisionEnemigo);
       FindObjectOfType<SpawnArea>().m_currentScore += m_score;
       Destroy(col);
       Destroy(gameObject);

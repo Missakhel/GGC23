@@ -14,4 +14,12 @@ public class Bullet : MonoBehaviour
         //m_objective = m_camera.ScreenToWorldPoint(Input.mousePosition);
         //m_rigidbody = GetComponent<Rigidbody2D>();
     }
+
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    if (collision.gameObject.CompareTag("Wall"))
+    {
+      Destroy(gameObject);
+    }
+  }
 }

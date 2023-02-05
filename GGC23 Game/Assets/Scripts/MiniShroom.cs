@@ -10,6 +10,24 @@ public class MiniShroom : MonoBehaviour
   public GameObject m_deadZone;
   public GameObject m_parent;
   bool farFromParent = false;
+
+  SpriteRenderer m_renderer;
+  public Vector3 m_bounceAmount;
+  public float m_maxOffMagnitude;
+
+  //Shake Vars
+  public int m_shakeCycles = 10;
+  public float m_blinkDuration = 0.125f;
+  float m_blinkTimeCounter = 0.0f;
+  [HideInInspector] public bool m_isBlinking = false;
+
+  private void Awake()
+  {
+    m_renderer = GetComponentInChildren<SpriteRenderer>();
+  }
+
+  public GameObject S_MuerteHijo;
+  public GameObject S_HijoRevive;
   
   // Start is called before the first frame update
   void Start()
@@ -23,7 +41,27 @@ public class MiniShroom : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    Blink();
+  }
 
+  public void StartBlink(float multiplier)
+  {
+    m_isBlinking = true;
+    m_renderer.color = Color.red;
+    m_blinkTimeCounter = 0.0f;
+  }
+
+  private void Blink()
+  {
+    if (m_isBlinking)
+    {
+      m_blinkTimeCounter += Time.deltaTime;
+      if (m_blinkTimeCounter >= m_blinkDuration)
+      {
+        m_isBlinking = false;
+        m_renderer.color = Color.white;
+      }
+    }
   }
 
   public void setDir(Vector2 dir)
@@ -47,6 +85,7 @@ public class MiniShroom : MonoBehaviour
     {
       
       GetComponent<Live>().Damage(1);
+      Instantiate(S_MuerteHijo);
     }
     if (col.gameObject.CompareTag("Shroom"))
     {
@@ -88,6 +127,7 @@ public class MiniShroom : MonoBehaviour
     transform.position = m_spore.transform.position;
     GetComponent<Follow>().enabled = true;
     m_spore.transform.position = m_deadZone.transform.position;
+    Instantiate(S_HijoRevive);
   }
 
   public void kill()

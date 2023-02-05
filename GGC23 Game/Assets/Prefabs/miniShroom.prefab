@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 741275591, guid: 86b45ca243aae86488bf6124767b0e24, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -192,6 +192,7 @@ MonoBehaviour:
   m_toFollow: {fileID: 0}
   m_distance: 6
   m_arrived: 0
+  m_arriving: 0
   m_angle: 0
 --- !u!114 &9052791265956404026
 MonoBehaviour:
@@ -210,3 +211,8 @@ MonoBehaviour:
   m_spore: {fileID: 0}
   m_deadZone: {fileID: 0}
   m_parent: {fileID: 0}
+  m_bounceAmount: {x: 0, y: 0, z: 0}
+  m_maxOffMagnitude: 0
+  m_shakeCycles: 1
+  m_blinkDuration: 0.5
+  m_isBlinking: 0

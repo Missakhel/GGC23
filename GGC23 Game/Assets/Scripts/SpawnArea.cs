@@ -76,7 +76,7 @@ public class SpawnArea : MonoBehaviour
       ++m_waveNum;
       Invoke("executeWave", m_timeBetweenWaves);
     }
-    m_scoreText.text = "score: " + m_currentScore.ToString();
+    m_scoreText.text = "Score: " + m_currentScore.ToString();
 
     //if (m_currentSpawnTime <= 0 && GameObject.FindGameObjectWithTag("Shroom"))
     //{
@@ -87,7 +87,7 @@ public class SpawnArea : MonoBehaviour
     //  m_currentSpawnTime -= Time.deltaTime;
     //}
 
-    m_scoreText.text = m_currentScore.ToString();
+    //m_scoreText.text = m_currentScore.ToString();
   }
 
   void executeWave()
