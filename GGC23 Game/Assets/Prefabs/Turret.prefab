@@ -145,6 +145,7 @@ MonoBehaviour:
   m_shootCooldown: 1
   m_bulletSpeed: 5
   m_bulletLifetime: 2.5
+  S_ColisionEnemigo: {fileID: 5873052285685532528, guid: 5a5cd1e5d6883c94db446928a556c2f9, type: 3}
 --- !u!114 &1494684358968348489
 MonoBehaviour:
   m_ObjectHideFlags: 0

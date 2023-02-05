@@ -141,6 +141,7 @@ MonoBehaviour:
   m_speed: 0
   m_score: 100
   m_scaleTimer: 0.5
+  S_ColisionEnemigo: {fileID: 5873052285685532528, guid: 5a5cd1e5d6883c94db446928a556c2f9, type: 3}
 --- !u!114 &7163894052073946676
 MonoBehaviour:
   m_ObjectHideFlags: 0

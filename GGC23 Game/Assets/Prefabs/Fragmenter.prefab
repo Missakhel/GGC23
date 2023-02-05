@@ -155,6 +155,7 @@ MonoBehaviour:
   m_divideCount: 2
   m_childCoefficient: 0.85
   m_scaleTimer: 1.5
+  S_ColisionEnemigo: {fileID: 5873052285685532528, guid: 5a5cd1e5d6883c94db446928a556c2f9, type: 3}
   m_timeRange: {x: 0, y: 0}
 --- !u!114 &5420180377453861006
 MonoBehaviour:

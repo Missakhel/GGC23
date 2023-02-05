@@ -17,6 +17,7 @@ public class Turret : MonoBehaviour
   public float m_bulletSpeed = .5f;
   public float m_bulletLifetime = 2.5f;
   float m_currentCooldown;
+  public GameObject S_ColisionEnemigo;
 
   // Start is called before the first frame update
   void Awake()
@@ -66,6 +67,7 @@ public class Turret : MonoBehaviour
   {
     if (col.gameObject.CompareTag("Projectile"))
     {
+      Instantiate(S_ColisionEnemigo);
       FindObjectOfType<SpawnArea>().m_currentScore += m_score;
       Destroy(col);
       Destroy(gameObject);

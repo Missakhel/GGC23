@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
   Vector3 m_originalPrefabScale;
   float m_currentScaleTime;
   public float m_scaleTimer = 1.0f; //Counts the time it will take the enemy to reach its full size
+  public GameObject S_ColisionEnemigo;
 
   private void Awake()
   {
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
   {
     if (col.gameObject.CompareTag("Projectile"))
     {
+      Instantiate(S_ColisionEnemigo);
       FindObjectOfType<SpawnArea>().m_currentScore += m_score;
       Destroy(col);
       Destroy(gameObject);
