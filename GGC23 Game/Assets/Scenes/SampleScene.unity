@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480304790}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fd31c07644b09b46beaafe4102d4e9b, type: 3}
   m_Name: 
@@ -1060,7 +1060,7 @@ MonoBehaviour:
       type: 0
       num: 2
     timeBetweenEvents: 0.125
-  m_waveNum: 1
+  m_waveNum: -1
   m_totalEnemiesForSpawn: 0
   m_totalEnemiesForKill: 0
   m_waveInvoked: 0

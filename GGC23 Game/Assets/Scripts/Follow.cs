@@ -25,7 +25,7 @@ public class Follow : MonoBehaviour
     var pos2D = new Vector2(m_toFollow.transform.position.x, m_toFollow.transform.position.y);
     var myPos2D = new Vector2(transform.position.x, transform.position.y);
     var vel2D = new Vector2(m_toFollow.GetComponent<Rigidbody2D>().velocity.x, m_toFollow.GetComponent<Rigidbody2D>().velocity.y);
-    var playerDir3d = m_toFollow.GetComponent<CharRotation>().m_spawner.position- m_toFollow.transform.position;
+    var playerDir3d = m_toFollow.GetComponent<Walk>().m_dir;//m_toFollow.GetComponent<CharRotation>().m_spawner.position- m_toFollow.transform.position;
     var playerDir2d = new Vector2(playerDir3d.x, playerDir3d.y);
     //Debug.Log(vel2D);
     //gameObject.transform.position = pos2D - vel2D.normalized * m_distance;
@@ -43,7 +43,6 @@ public class Follow : MonoBehaviour
     //Debug.Log(deltaPos.magnitude + " " + m_arrived);
     if(deltaPos.magnitude > m_arrived)
     {
-      //Debug.Log("going");
       GetComponent<Steering>().m_wantedVel = deltaPos;
     }
     else

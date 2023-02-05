@@ -17,7 +17,7 @@ public class Walk : State
     {
         float m_moveX = Input.GetAxisRaw("Horizontal");
         float m_moveY = Input.GetAxisRaw("Vertical");
-        var newDir = new Vector3(m_moveX, m_moveY);
+        var newDir = new Vector3(m_moveX, m_moveY).normalized;
         var vel = m_dir * m_vel * Time.deltaTime;
         transform.position += new Vector3(vel.x,vel.y,0);
         if (Input.GetKey(KeyCode.LeftShift))
