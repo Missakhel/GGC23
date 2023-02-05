@@ -53,7 +53,7 @@ public class CharRotation : MonoBehaviour
     {
       directionv += new Vector3(-1, 0, 0);
     }
-    Debug.Log(directionv);
+    //Debug.Log(directionv);
     if (directionv.magnitude > 0)
     {
       directionv.Normalize();
