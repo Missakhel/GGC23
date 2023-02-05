@@ -53,7 +53,7 @@ public class Shroom : MonoBehaviour
 
   void OnTriggerEnter2D(Collider2D col)
   {
-    Debug.Log("triggered "+ col.gameObject.CompareTag("EnemyProjectile"));
+    //Debug.Log("triggered "+ col.gameObject.CompareTag("EnemyProjectile"));
     if (!col.gameObject.CompareTag("EnemyProjectile"))
     {
       return;
@@ -75,7 +75,7 @@ public class Shroom : MonoBehaviour
         child.GetComponent<Follow>().enabled = false;
         child.GetComponent<Wander>().enabled = true;
         child.GetComponent<Wander>().changeVel(vel2D);
-        child.GetComponent<CircleCollider2D>().enabled = true;
+        child.GetComponent<MiniShroom>().activateColliderAfterTime(2);
         m_childs.Remove(child);
         break;
       }

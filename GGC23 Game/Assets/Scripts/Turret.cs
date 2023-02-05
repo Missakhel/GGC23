@@ -26,7 +26,7 @@ public class Turret : MonoBehaviour
     m_currentCooldown = m_shootCooldown;
     m_originalPrefabScale = transform.localScale;
     transform.localScale = Vector3.zero;
-    m_target = GameObject.FindGameObjectWithTag("Shroom");
+    m_target = GameObject.Find("Shroom");
     GetComponent<CircleCollider2D>().enabled = false;
   }
 
