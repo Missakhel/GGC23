@@ -718,6 +718,11 @@ MonoBehaviour:
   m_bulletSize: 1
   m_grados: 1
   m_spawnTimer: 0.33
+--- !u!4 &608873126 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8864151419488917422, guid: ad01fe008391767418069bcf7fbed198, type: 3}
+  m_PrefabInstance: {fileID: 8864151419610464802}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &970339492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,7 +1060,7 @@ MonoBehaviour:
       type: 0
       num: 2
     timeBetweenEvents: 0.125
-  m_waveNum: -1
+  m_waveNum: 1
   m_totalEnemiesForSpawn: 0
   m_totalEnemiesForKill: 0
   m_waveInvoked: 0
@@ -1170,6 +1175,18 @@ PrefabInstance:
     - target: {fileID: 6506482992957396390, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_debugPoint
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199926113156138366, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199926113156138366, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7199926113156138366, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8864151419488917416, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_Name
@@ -1338,13 +1355,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493863907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 608873126}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858068252 stripped
 GameObject:
