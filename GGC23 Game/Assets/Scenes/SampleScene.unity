@@ -698,26 +698,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8864151419488917416, guid: ad01fe008391767418069bcf7fbed198, type: 3}
   m_PrefabInstance: {fileID: 8864151419610464802}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &608873119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608873111}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a711ff0c10500448b7cb28b2c21db0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_camera: {fileID: 519420031}
-  m_bulletPrefab: {fileID: 1322869957691571724, guid: 65f0ec4c15d291e4f924b2e0c4a988ad, type: 3}
-  m_spawner: {fileID: 0}
-  m_bulletLife: 5
-  m_bulletVelocity: 5
-  m_bulletSize: 1
-  m_grados: 1
-  m_spawnTimer: 0.33
 --- !u!4 &608873126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8864151419488917422, guid: ad01fe008391767418069bcf7fbed198, type: 3}
@@ -2106,6 +2086,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: SafeArea
       objectReference: {fileID: 0}
+    - target: {fileID: 3121502363554356710, guid: ad01fe008391767418069bcf7fbed198, type: 3}
+      propertyPath: m_camera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 6431232566806440514, guid: ad01fe008391767418069bcf7fbed198, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.04

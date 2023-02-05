@@ -26,13 +26,13 @@ public class CharRotation : MonoBehaviour
     m_shroomReference = FindObjectOfType<Shroom>();
   }
 
-    // Update is called once per frame
-    void Update()
-    {
+  // Update is called once per frame
+  void Update()
+  {
     ShootingArrows();
-        //Checkfiring();
-        //RotateTowardsMouse();
-    }
+    //Checkfiring();
+    //RotateTowardsMouse();
+  }
 
   private void ShootingArrows()
   {
@@ -59,7 +59,7 @@ public class CharRotation : MonoBehaviour
       directionv.Normalize();
       m_printShoot();
     }
-    
+
     //directionv = (m_objective - transform.position);
     //float m_angleRadians = Mathf.Atan2(directionv.y, directionv.x);
     //float m_angleDegrees = (180 / Mathf.PI) * m_angleRadians - 90;
@@ -123,7 +123,7 @@ public class CharRotation : MonoBehaviour
       m_bulletInstance.transform.position = gameObject.transform.position;
       m_bulletInstance.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
       //Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * m_pointD.x), Mathf.Sin(Mathf.Deg2Rad * m_pointD.y)) * m_bulletVelocity;
-      m_bulletInstance.GetComponent<Rigidbody2D>().velocity = directionv* m_bulletVelocity;
+      m_bulletInstance.GetComponent<Rigidbody2D>().velocity = directionv * m_bulletVelocity;
       m_currentSpawnTime = m_spawnTimer;
       Destroy(m_bulletInstance, m_bulletLife);
     }
@@ -142,12 +142,12 @@ public class CharRotation : MonoBehaviour
     float m_angleDegrees = m_grados = (180 / Mathf.PI) * m_anlgeRadians - 90;
     //var m_pointD = Quaternion.Euler(0, 0, m_angleDegrees);
     transform.rotation = m_pointD;
-    Dictionary<float, float[] > map = new Dictionary<float, float[]>()
+    Dictionary<float, float[]> map = new Dictionary<float, float[]>()
     {
       { 0, new float[] {-22.5f,22.5f }},{45,new float[]{22.5f,68f } },{90,new float[]{68f,112.5f} }
     };
 
-    float[] floatArray = new float[] {0, 2, 3};
+    float[] floatArray = new float[] { 0, 2, 3 };
     //if (m_grados <= 36&&m_grados >=-36)
     //{
     //  m_pointD = Quaternion.Euler(0, 0, 0);
@@ -181,16 +181,16 @@ public class CharRotation : MonoBehaviour
     //  m_pointD = Quaternion.Euler(0, 0, 45);
     //}
     //    transform.rotation = m_pointD;
-    }
-    private void Checkfiring()
+  }
+  private void Checkfiring()
+  {
+    if (Input.GetMouseButtonDown(0))
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject m_bullet = Instantiate(m_bulletPrefab);
-            m_bullet.transform.position = m_spawner.position;
-            m_bullet.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
-            m_bullet.GetComponent<Rigidbody2D>().velocity = (m_spawner.position - transform.position)*m_bulletVelocity;
-            Destroy(m_bullet, m_bulletLife);
-        }
+      GameObject m_bullet = Instantiate(m_bulletPrefab);
+      m_bullet.transform.position = m_spawner.position;
+      m_bullet.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
+      m_bullet.GetComponent<Rigidbody2D>().velocity = (m_spawner.position - transform.position) * m_bulletVelocity;
+      Destroy(m_bullet, m_bulletLife);
     }
+  }
 }

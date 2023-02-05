@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+
 public class Shroom : MonoBehaviour
 {
 
@@ -105,7 +106,7 @@ public class Shroom : MonoBehaviour
 
     var vel3D = (transform.position - col.transform.position).normalized * m_damageForse;
     var vel2D = new Vector2(vel3D.x, vel3D.y);
-    GetComponent<Rigidbody2D>().velocity = vel2D;
+    //GetComponent<Rigidbody2D>().velocity = vel2D;
     Debug.Log("reacted");
 
     if(m_childs.Count == 0)
@@ -136,6 +137,8 @@ public class Shroom : MonoBehaviour
     //var child = Instantiate(m_child, transform.position, transform.rotation);
     //child.GetComponent<MiniShroom>().m_dir = Vel2D;
     //child.GetComponent<MiniShroom>().setDir(Vel2D);
+
+    Destroy(col.gameObject);
   }
 
   public void addChild(GameObject child)
@@ -155,10 +158,11 @@ public class Shroom : MonoBehaviour
   public event Action onDie;
   public void die()
   {
-    //Destroy(gameObject);
+    Destroy(gameObject);
     //m_canvas.enabled = true;
     //Time.timeScale = 0f;
     onDie();
+    SceneManager.LoadScene("Dead");
   }
   //public void Restart()
   //{
