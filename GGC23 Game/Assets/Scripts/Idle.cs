@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Idle : State
 {
@@ -10,9 +11,9 @@ public class Idle : State
 
     }
 
-    // Update is called once per frame
-    public override void OnUpdate(){
-        if (Input.GetKey(KeyCode.A)){
+  // Update is called once per frame
+  public override void OnUpdate(){
+    if (Input.GetKey(KeyCode.A)){
             m_statemachine.SetState(m_statemachine.m_Walk); 
         }
         if (Input.GetKey(KeyCode.D))
