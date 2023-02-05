@@ -162,6 +162,8 @@ public class Shroom : MonoBehaviour
     //m_canvas.enabled = true;
     //Time.timeScale = 0f;
     onDie();
+    ;
+    PlayerPrefs.SetInt("high score", GameObject.Find("Spawn Area").GetComponent<SpawnArea>().m_currentScore);
     SceneManager.LoadScene("Dead");
   }
   //public void Restart()

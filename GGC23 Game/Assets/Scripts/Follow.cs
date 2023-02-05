@@ -48,7 +48,7 @@ public class Follow : MonoBehaviour
     }
     else if(deltaPos.magnitude > m_arrived)
     {
-      GetComponent<Steering>().m_wantedVel = deltaPos*(deltaPos.magnitude-m_arrived) /(m_arriving- m_arrived);
+      GetComponent<Steering>().m_wantedVel = deltaPos*(deltaPos.magnitude-m_arrived) / (m_arriving- m_arrived);
     }
     else
     {

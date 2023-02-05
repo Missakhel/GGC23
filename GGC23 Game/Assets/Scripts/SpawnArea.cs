@@ -34,12 +34,13 @@ public class SpawnArea : MonoBehaviour
 {
   // Start is called before the first frame update
   [HideInInspector] public int m_currentScore = 0;
+  //public TextMeshProUGUI m_scoreText;
   BoxCollider2D m_bc;
   Vector2 m_spawnPosition;
   public List<GameObject> m_enemyList = new List<GameObject>();
   //public GameObject m_enemyPrefab;
   int m_enemyIndex;
-  TextMeshProUGUI m_scoreText;
+  public TextMeshProUGUI m_scoreText;
   GameObject m_enemyInstance;
 
   public float m_spawnTimer = 10.0f; //Counts the time it will take the enemy to spawn again;
@@ -75,7 +76,7 @@ public class SpawnArea : MonoBehaviour
       ++m_waveNum;
       Invoke("executeWave", m_timeBetweenWaves);
     }
-
+    m_scoreText.text = "score: " + m_currentScore.ToString();
 
     //if (m_currentSpawnTime <= 0 && GameObject.FindGameObjectWithTag("Shroom"))
     //{
