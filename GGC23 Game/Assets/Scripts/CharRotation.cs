@@ -36,59 +36,83 @@ public class CharRotation : MonoBehaviour
 
   private void ShootingArrows()
   {
-    directionv = (m_objective - transform.position);
-    float m_angleRadians = Mathf.Atan2(directionv.y, directionv.x);
-    float m_angleDegrees = (180 / Mathf.PI) * m_angleRadians - 90;
-    var m_pointD = Quaternion.Euler(0, 0, m_angleDegrees);
-
-    if (Input.GetKey(KeyCode.UpArrow) && Input.GetAxis("Horizontal") == 0)
+    directionv = new Vector3(0, 0, 0);
+    if (Input.GetKey(KeyCode.UpArrow))
     {
-      m_pointD = Quaternion.Euler(0, 0, 0);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteN;
+      directionv += new Vector3(0, 1, 0);
+    }
+    if (Input.GetKey(KeyCode.DownArrow))
+    {
+      directionv += new Vector3(0, -1, 0);
+    }
+    if (Input.GetKey(KeyCode.RightArrow))
+    {
+      directionv += new Vector3(1, 0, 0);
+    }
+    if (Input.GetKey(KeyCode.LeftArrow))
+    {
+      directionv += new Vector3(-1, 0, 0);
+    }
+    Debug.Log(directionv);
+    if (directionv.magnitude > 0)
+    {
+      directionv.Normalize();
       m_printShoot();
     }
-    if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
-    {
-      m_pointD = Quaternion.Euler(0, 0, -45);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteNE;
-      m_printShoot();
-    }
-    if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
-    {
-      m_pointD = Quaternion.Euler(0, 0, 45);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteNW;
-      m_printShoot();
-    }
-    if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
-    {
-      m_pointD = Quaternion.Euler(0, 0, -135);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteSE;
-      m_printShoot();
-    }
-    if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
-    {
-      m_pointD = Quaternion.Euler(0, 0, 135);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteSW;
-      m_printShoot();
-    }
-    if (Input.GetKey(KeyCode.DownArrow) && Input.GetAxis("Horizontal") == 0)
-    {
-      m_pointD = Quaternion.Euler(0, 0, -180);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteS;
-      m_printShoot();
-    }
-    if (Input.GetKey(KeyCode.RightArrow) && Input.GetAxis("Vertical") == 0)
-    {
-      m_pointD = Quaternion.Euler(0, 0, -90);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteE;
-      m_printShoot();
-    }
-    if (Input.GetKey(KeyCode.LeftArrow) && Input.GetAxis("Vertical") == 0)
-    {
-      m_pointD = Quaternion.Euler(0, 0, 90);
-      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteW;
-      m_printShoot();
-    }
+    
+    //directionv = (m_objective - transform.position);
+    //float m_angleRadians = Mathf.Atan2(directionv.y, directionv.x);
+    //float m_angleDegrees = (180 / Mathf.PI) * m_angleRadians - 90;
+    //var m_pointD = Quaternion.Euler(0, 0, m_angleDegrees);
+    //
+    //if (Input.GetKey(KeyCode.UpArrow) && Input.GetAxis("Horizontal") == 0)
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, 0);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteN;
+    //  m_printShoot();
+    //}
+    //if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, -45);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteNE;
+    //  m_printShoot();
+    //}
+    //if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, 45);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteNW;
+    //  m_printShoot();
+    //}
+    //if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, -135);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteSE;
+    //  m_printShoot();
+    //}
+    //if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, 135);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteSW;
+    //  m_printShoot();
+    //}
+    //if (Input.GetKey(KeyCode.DownArrow) && Input.GetAxis("Horizontal") == 0)
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, -180);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteS;
+    //  m_printShoot();
+    //}
+    //if (Input.GetKey(KeyCode.RightArrow) && Input.GetAxis("Vertical") == 0)
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, -90);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteE;
+    //  m_printShoot();
+    //}
+    //if (Input.GetKey(KeyCode.LeftArrow) && Input.GetAxis("Vertical") == 0)
+    //{
+    //  m_pointD = Quaternion.Euler(0, 0, 90);
+    //  m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteW;
+    //  m_printShoot();
+    //}
   }
 
   void m_printShoot()
@@ -99,7 +123,7 @@ public class CharRotation : MonoBehaviour
       m_bulletInstance.transform.position = m_spawner.position;
       m_bulletInstance.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
       Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * m_pointD.x), Mathf.Sin(Mathf.Deg2Rad * m_pointD.y)) * m_bulletVelocity;
-      m_bulletInstance.GetComponent<Rigidbody2D>().velocity = direction;
+      m_bulletInstance.GetComponent<Rigidbody2D>().velocity = directionv* m_bulletVelocity;
       m_currentSpawnTime = m_spawnTimer;
       Destroy(m_bulletInstance, m_bulletLife);
     }
