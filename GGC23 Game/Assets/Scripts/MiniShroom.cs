@@ -10,6 +10,8 @@ public class MiniShroom : MonoBehaviour
   public GameObject m_deadZone;
   public GameObject m_parent;
   bool farFromParent = false;
+  public GameObject S_MuerteHijo;
+  public GameObject S_HijoRevive;
   
   // Start is called before the first frame update
   void Start()
@@ -47,6 +49,7 @@ public class MiniShroom : MonoBehaviour
     {
       
       GetComponent<Live>().Damage(1);
+      Instantiate(S_MuerteHijo);
     }
     if (col.gameObject.CompareTag("Shroom"))
     {
@@ -88,6 +91,7 @@ public class MiniShroom : MonoBehaviour
     transform.position = m_spore.transform.position;
     GetComponent<Follow>().enabled = true;
     m_spore.transform.position = m_deadZone.transform.position;
+    Instantiate(S_HijoRevive);
   }
 
   public void kill()
