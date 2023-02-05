@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class MenuInicial : MonoBehaviour
 {
     public void Jugar(){
-        SceneManager.LoadScene("SampleScene_1");
+        SceneManager.LoadScene("SampleScene");
     }
 }
