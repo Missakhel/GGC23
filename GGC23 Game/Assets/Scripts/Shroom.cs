@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 public class Shroom : MonoBehaviour
 {
 
@@ -18,11 +19,15 @@ public class Shroom : MonoBehaviour
   public Sprite m_spriteNW;
   public Sprite m_spriteW;
   public Sprite m_spriteSW;
+  [SerializeField] private GameObject m_canvas;
+  [SerializeField] private GameObject m_menuDeath;
 
   //bool m_farFromParent = false;
   // Start is called before the first frame update
   void Awake()
   {
+    m_canvas = GameObject.Find("Death");
+    m_canvas.SetActive(false);
     m_headRenderer = GameObject.FindGameObjectWithTag("Head Renderer").GetComponent<SpriteRenderer>();
   }
 
@@ -144,7 +149,17 @@ public class Shroom : MonoBehaviour
   public event Action onDie;
   public void die()
   {
+    m_canvas.SetActive(true);
     Destroy(gameObject);
+    Time.timeScale = 0f;
     onDie();
+  }
+  public void Restart()
+  {
+    SceneManager.LoadScene("SampleScene");
+  }
+  public void Exit()
+  {
+    Application.Quit();
   }
 }
