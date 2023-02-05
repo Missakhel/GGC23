@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
   [SerializeField] private GameObject m_botonPausa;
   [SerializeField] private GameObject m_menuPausa;
   private Canvas m_canvas;
+  public bool m_isPaused = false;
   private void Start()
   {
     m_canvas = GetComponent<Canvas>();
@@ -21,9 +22,13 @@ public class PauseMenu : MonoBehaviour
   {
     if (Input.GetKeyDown(KeyCode.Escape))
     {
+      m_isPaused = true;
       Time.timeScale = 0f;
       //m_botonPausa.SetActive(false);
       m_canvas.enabled = true;
+      if( m_isPaused== false){
+        m_canvas.enabled = false;
+      }
     }
   }
   public void Reanudar()
@@ -31,6 +36,7 @@ public class PauseMenu : MonoBehaviour
     Time.timeScale = 1.0f;
    // m_botonPausa.SetActive(true);
     m_menuPausa.SetActive(false);
+    m_isPaused = false;
   }
   public void returnMainMenu()
   {
