@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private Camera m_camera;
     private Vector3 m_objective;
     private Rigidbody2D m_rigidbody;
-    public float m_speed = 3;
+    public float m_speed = 1f;
     // Start is called before the first frame update
     void Start()
     {

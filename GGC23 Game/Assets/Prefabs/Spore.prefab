@@ -114,6 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28fed8d82fdd44445a0cd67409b806cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_reviveTimer: 0
-  m_currentReviveCountdown: 0
+  m_reviveTimer: 1
+  m_currentReviveCountdown: 10
   m_miniMushroom: {fileID: 0}
