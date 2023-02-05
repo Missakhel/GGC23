@@ -22,6 +22,8 @@ public class Shroom : MonoBehaviour
   public Sprite m_spriteW;
   public Sprite m_spriteSW;
   private Canvas m_canvas;
+  AudioSource m_as;
+  public List<AudioClip> m_soundEffects = new List<AudioClip>();
 
   //bool m_farFromParent = false;
   // Start is called before the first frame update
@@ -29,15 +31,16 @@ public class Shroom : MonoBehaviour
   {
     m_headRenderer = GameObject.FindGameObjectWithTag("Head Renderer").GetComponent<SpriteRenderer>();
   }
-  //private void Start()
-  //{
+  private void Start()
+  {
+    m_as = GetComponent<AudioSource>();
   //  m_canvas = GetComponent<Canvas>();
   //  if (m_canvas == null)
   //  {
   //    Debug.LogError("Canvas not found");
   //  }
   //  m_canvas.enabled = false;
-  //}
+  }
 
   // Update is called once per frame
   void Update()
@@ -111,6 +114,15 @@ public class Shroom : MonoBehaviour
     //GetComponent<Rigidbody2D>().velocity = vel2D;
     Debug.Log("reacted");
     Camera.main.GetComponent<CameraMovement>().StartStun(m_shakeMultiplier);
+    if(!m_as)
+    {
+      Debug.LogError("AudioSource null");
+      m_as = new AudioSource();
+    }
+
+    AudioClip clip = m_soundEffects[0];
+    m_as.clip = clip; 
+    m_as.Play();
 
     if (m_childs.Count == 0)
     {
