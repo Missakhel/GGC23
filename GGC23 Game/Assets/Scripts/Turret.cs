@@ -35,11 +35,12 @@ public class Turret : MonoBehaviour
       if (m_currentScaleTime <= 0)
       {
         GetComponent<CircleCollider2D>().enabled = true;
-        transform.right = m_target.transform.position - transform.position;
+        //transform.right = m_target.transform.position - transform.position;
 
       if (m_currentCooldown <= 0)
         {
           m_bulletInstance = Instantiate(m_bulletPrefab, transform.position, transform.localRotation);
+          m_bulletInstance.transform.right = m_target.transform.position - transform.position;
           m_bulletInstance.GetComponent<Rigidbody2D>().velocity = (m_target.transform.position - transform.position).normalized * m_bulletSpeed;
           Destroy(m_bulletInstance, m_bulletLifetime);
           m_currentCooldown = m_shootCooldown;

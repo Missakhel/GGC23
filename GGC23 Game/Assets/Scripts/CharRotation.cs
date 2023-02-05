@@ -122,6 +122,7 @@ public class CharRotation : MonoBehaviour
       m_bulletInstance = Instantiate(m_bulletPrefab);
       m_bulletInstance.transform.position = gameObject.transform.position;
       m_bulletInstance.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
+      m_bulletInstance.transform.localRotation = Quaternion.EulerAngles(0, 0, Vector3.Angle(transform.position, directionv + transform.position));
       //Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * m_pointD.x), Mathf.Sin(Mathf.Deg2Rad * m_pointD.y)) * m_bulletVelocity;
       m_bulletInstance.GetComponent<Rigidbody2D>().velocity = directionv * m_bulletVelocity;
       m_currentSpawnTime = m_spawnTimer;
