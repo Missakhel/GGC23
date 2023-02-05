@@ -9,6 +9,7 @@ public class Follow : MonoBehaviour
   public float m_distance;
 
   public float m_arrived;
+  public float m_arriving;
 
   public float m_angle;
 
@@ -41,9 +42,13 @@ public class Follow : MonoBehaviour
     var deltaPos = placeToGo - myPos2D;
     //m_debugPoint.transform.position = deltaPos;
     //Debug.Log(deltaPos.magnitude + " " + m_arrived);
-    if(deltaPos.magnitude > m_arrived)
+    if(deltaPos.magnitude > m_arriving)
     {
       GetComponent<Steering>().m_wantedVel = deltaPos;
+    }
+    else if(deltaPos.magnitude > m_arrived)
+    {
+      GetComponent<Steering>().m_wantedVel = deltaPos*(deltaPos.magnitude-m_arrived) /(m_arriving- m_arrived);
     }
     else
     {

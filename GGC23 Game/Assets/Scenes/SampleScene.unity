@@ -1094,7 +1094,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 230176888479293955, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_maxVel
-      value: 12
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 230176888479293955, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+      propertyPath: m_maxAceleration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1917956297566585467, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_wanderTime
@@ -1142,7 +1146,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6506482992957396390, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_arrived
-      value: 0.1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506482992957396390, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+      propertyPath: m_arriving
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6506482992957396390, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_distance
@@ -1870,7 +1878,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 230176888479293955, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_maxVel
-      value: 12
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 230176888479293955, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+      propertyPath: m_maxAceleration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1917956297566585467, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_wanderTime
@@ -1918,7 +1930,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6506482992957396390, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_arrived
-      value: 0.1
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6506482992957396390, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
+      propertyPath: m_arriving
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6506482992957396390, guid: 52b0096c3aab64b4aa8eedcaff8623e2, type: 3}
       propertyPath: m_distance
