@@ -19,17 +19,23 @@ public class Shroom : MonoBehaviour
   public Sprite m_spriteNW;
   public Sprite m_spriteW;
   public Sprite m_spriteSW;
-  [SerializeField] private GameObject m_canvas;
-  [SerializeField] private GameObject m_menuDeath;
+  private Canvas m_canvas;
 
   //bool m_farFromParent = false;
   // Start is called before the first frame update
   void Awake()
   {
-    m_canvas = GameObject.Find("Death");
-    m_canvas.SetActive(false);
     m_headRenderer = GameObject.FindGameObjectWithTag("Head Renderer").GetComponent<SpriteRenderer>();
   }
+  //private void Start()
+  //{
+  //  m_canvas = GetComponent<Canvas>();
+  //  if (m_canvas == null)
+  //  {
+  //    Debug.LogError("Canvas not found");
+  //  }
+  //  m_canvas.enabled = false;
+  //}
 
   // Update is called once per frame
   void Update()
@@ -149,17 +155,17 @@ public class Shroom : MonoBehaviour
   public event Action onDie;
   public void die()
   {
-    m_canvas.SetActive(true);
-    Destroy(gameObject);
-    Time.timeScale = 0f;
+    //Destroy(gameObject);
+    //m_canvas.enabled = true;
+    //Time.timeScale = 0f;
     onDie();
   }
-  public void Restart()
-  {
-    SceneManager.LoadScene("SampleScene");
-  }
-  public void Exit()
-  {
-    Application.Quit();
-  }
+  //public void Restart()
+  //{
+  //  SceneManager.LoadScene("SampleScene");
+  //}
+  //public void Exit()
+  //{
+  //  Application.Quit();
+  //}
 }

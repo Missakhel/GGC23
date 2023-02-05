@@ -7,11 +7,15 @@ public class PauseMenu : MonoBehaviour
 {
   [SerializeField] private GameObject m_botonPausa;
   [SerializeField] private GameObject m_menuPausa;
-  private GameObject m_canvas;
-  private void Awake()
+  private Canvas m_canvas;
+  private void Start()
   {
-    m_canvas = GameObject.Find("Pause");
-    m_canvas.SetActive(false);
+    m_canvas = GetComponent<Canvas>();
+    if(m_canvas == null)
+    {
+      Debug.LogError("Canvas not found");
+    }
+    m_canvas.enabled = false;
   }
   private void Update()
   {
@@ -19,7 +23,7 @@ public class PauseMenu : MonoBehaviour
     {
       Time.timeScale = 0f;
       //m_botonPausa.SetActive(false);
-      m_canvas.SetActive(true);
+      m_canvas.enabled = true;
     }
   }
   public void Reanudar()
