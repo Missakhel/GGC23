@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7105565235719825664}
   - component: {fileID: 1533952459542296400}
   - component: {fileID: 5601024131408029622}
+  - component: {fileID: 1494684358968348489}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Enemy
@@ -139,7 +140,20 @@ MonoBehaviour:
   m_speed: 0
   m_score: 200
   m_bulletPrefab: {fileID: 8745044325085205352, guid: 0de83c0ee1ff1084396d4f2ebc4c2ac1, type: 3}
-  m_targetPrefab: {fileID: 8864151419488917416, guid: ad01fe008391767418069bcf7fbed198, type: 3}
   m_scaleTimer: 1
   m_shootCooldown: 1
   m_bulletSpeed: 5
+  m_bulletLifetime: 2.5
+--- !u!114 &1494684358968348489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5804461627369969208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 183e1e4844d460b4fb791e3db2b8980d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 1

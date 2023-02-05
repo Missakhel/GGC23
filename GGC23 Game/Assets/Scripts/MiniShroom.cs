@@ -43,7 +43,7 @@ public class MiniShroom : MonoBehaviour
         GetComponent<Wander>().changeVel(newVel);
       }
     }
-    if (col.gameObject.CompareTag("Enemy"))
+    if (col.gameObject.CompareTag("Enemy") || col.gameObject.CompareTag("EnemyProjectile"))
     {
       
       GetComponent<Live>().Damage(1);
