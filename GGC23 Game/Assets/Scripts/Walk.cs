@@ -5,7 +5,7 @@ using UnityEngine;
 public class Walk : State
 {
     public Vector2 m_dir;
-    [SerializeField] public float m_vel =2f;
+    [SerializeField] public float m_vel =6f;
     // Start is called before the first frame update
     public override void OnEnter()
     {
