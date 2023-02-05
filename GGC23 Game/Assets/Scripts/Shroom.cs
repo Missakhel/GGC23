@@ -8,8 +8,8 @@ public class Shroom : MonoBehaviour
   public float m_damageForse = 1;
 
   public List<GameObject> m_childs;
-  SpriteRenderer m_headRenderer;
-  SpriteRenderer m_bodyRenderer;
+  public SpriteRenderer m_headRenderer;
+  public SpriteRenderer m_bodyRenderer;
   public Sprite m_spriteS;
   public Sprite m_spriteSE;
   public Sprite m_spriteE;

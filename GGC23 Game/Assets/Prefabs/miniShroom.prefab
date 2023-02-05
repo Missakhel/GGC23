@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2322707342297399752}
   - component: {fileID: 5022759957557419865}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 230176888479293955}
   - component: {fileID: 6506482992957396390}
   - component: {fileID: 9052791265956404026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: miniShroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_toFollow: {fileID: 0}
   m_distance: 6
   m_arrived: 0
-  m_debugPoint: {fileID: 0}
+  m_angle: 0
 --- !u!114 &9052791265956404026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +187,5 @@ MonoBehaviour:
   m_dir: {x: 0, y: 0}
   m_sporeReviveTime: 0
   m_spore: {fileID: 0}
+  m_deadZone: {fileID: 0}
+  m_parent: {fileID: 0}

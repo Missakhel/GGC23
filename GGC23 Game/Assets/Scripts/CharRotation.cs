@@ -1,7 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharRotation : MonoBehaviour
@@ -16,13 +13,18 @@ public class CharRotation : MonoBehaviour
   public float m_grados = 1;
   Vector3 directionv;
   GameObject m_bulletInstance;
+  Shroom m_shroomReference;
+  Quaternion m_pointD;
   public float m_spawnTimer = .33f;
   float m_currentSpawnTime;
+  bool m_otherKeyPressed;
+
   // Start is called before the first frame update
-  void Start()
-    {
-        
-    }
+  void Awake()
+  {
+    m_pointD = Quaternion.Euler(0, 0, -135);
+    m_shroomReference = FindObjectOfType<Shroom>();
+  }
 
     // Update is called once per frame
     void Update()
@@ -31,84 +33,90 @@ public class CharRotation : MonoBehaviour
         //Checkfiring();
         //RotateTowardsMouse();
     }
+
   private void ShootingArrows()
   {
     directionv = (m_objective - transform.position);
-    float m_anlgeRadians = Mathf.Atan2(directionv.y, directionv.x);
-    float m_angleDegrees = (180 / Mathf.PI) * m_anlgeRadians - 90;
+    float m_angleRadians = Mathf.Atan2(directionv.y, directionv.x);
+    float m_angleDegrees = (180 / Mathf.PI) * m_angleRadians - 90;
     var m_pointD = Quaternion.Euler(0, 0, m_angleDegrees);
-    void m_printShoot()
-    {
-      if (m_currentSpawnTime <= 0)
-      {
-        m_bulletInstance = Instantiate(m_bulletPrefab);
-        m_bulletInstance.transform.position = m_spawner.position;
-        m_bulletInstance.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
-        m_bulletInstance.GetComponent<Rigidbody2D>().velocity = (m_spawner.position - transform.position) * m_bulletVelocity;
-        m_currentSpawnTime = m_spawnTimer;
-        Destroy(m_bulletInstance, m_bulletLife);
-      }
-      else
-      {
-        m_currentSpawnTime -= Time.deltaTime;
-      }
-    }
-    if (Input.GetKeyDown(KeyCode.UpArrow))
+
+    if (Input.GetKey(KeyCode.UpArrow) && Input.GetAxis("Horizontal") == 0)
     {
       m_pointD = Quaternion.Euler(0, 0, 0);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteN;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
-    if (Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.RightArrow)))
+    if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
     {
       m_pointD = Quaternion.Euler(0, 0, -45);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteNE;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
-    if (Input.GetKey(KeyCode.UpArrow) && (Input.GetKey(KeyCode.LeftArrow)))
+    if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
     {
       m_pointD = Quaternion.Euler(0, 0, 45);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteNW;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
-    if (Input.GetKey(KeyCode.DownArrow) && (Input.GetKey(KeyCode.RightArrow)))
+    if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
     {
       m_pointD = Quaternion.Euler(0, 0, -135);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteSE;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
-    if (Input.GetKey(KeyCode.DownArrow) && (Input.GetKey(KeyCode.LeftArrow)))
+    if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
     {
       m_pointD = Quaternion.Euler(0, 0, 135);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteSW;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
-    if (Input.GetKeyDown(KeyCode.DownArrow))
+    if (Input.GetKey(KeyCode.DownArrow) && Input.GetAxis("Horizontal") == 0)
     {
       m_pointD = Quaternion.Euler(0, 0, -180);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteS;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
-    if (Input.GetKeyDown(KeyCode.RightArrow))
+    if (Input.GetKey(KeyCode.RightArrow) && Input.GetAxis("Vertical") == 0)
     {
       m_pointD = Quaternion.Euler(0, 0, -90);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteE;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
-    if (Input.GetKeyDown(KeyCode.LeftArrow))
+    if (Input.GetKey(KeyCode.LeftArrow) && Input.GetAxis("Vertical") == 0)
     {
       m_pointD = Quaternion.Euler(0, 0, 90);
+      m_shroomReference.m_headRenderer.sprite = m_shroomReference.m_spriteW;
       m_printShoot();
-      transform.rotation = m_pointD;
     }
   }
+
+  void m_printShoot()
+  {
+    if (m_currentSpawnTime <= 0)
+    {
+      m_bulletInstance = Instantiate(m_bulletPrefab);
+      m_bulletInstance.transform.position = m_spawner.position;
+      m_bulletInstance.GetComponent<Rigidbody2D>().transform.localScale *= m_bulletSize;
+      Vector2 direction = new Vector2(Mathf.Cos(Mathf.Deg2Rad * m_pointD.x), Mathf.Sin(Mathf.Deg2Rad * m_pointD.y)) * m_bulletVelocity;
+      m_bulletInstance.GetComponent<Rigidbody2D>().velocity = direction;
+      m_currentSpawnTime = m_spawnTimer;
+      Destroy(m_bulletInstance, m_bulletLife);
+    }
+    else
+    {
+      m_currentSpawnTime -= Time.deltaTime;
+    }
+    //transform.rotation = m_pointD;
+  }
+
   private void RotateTowardsMouse()
   {
     m_objective = m_camera.ScreenToWorldPoint(Input.mousePosition);
     directionv = (m_objective - transform.position);
     float m_anlgeRadians = Mathf.Atan2(directionv.y, directionv.x);
     float m_angleDegrees = m_grados = (180 / Mathf.PI) * m_anlgeRadians - 90;
-    var m_pointD = Quaternion.Euler(0, 0, m_angleDegrees);
+    //var m_pointD = Quaternion.Euler(0, 0, m_angleDegrees);
     transform.rotation = m_pointD;
     Dictionary<float, float[] > map = new Dictionary<float, float[]>()
     {
