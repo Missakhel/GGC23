@@ -43,40 +43,45 @@ public class MiniShroom : MonoBehaviour
   void Update()
   {
     Blink();
-    if (gameObject.transform.position.x > 10)
+    var colider = GetComponent<CircleCollider2D>();
+    if (colider && colider.isActiveAndEnabled)
     {
-      m_outOfBounds = true;
-      var vel = GetComponent<Rigidbody2D>().velocity;
-      GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * GetComponent<Steering>().m_maxVel;
-      GetComponent<Steering>().enabled = false;
+      //Debug.Log("colider.isActiveAndEnabled ");
     }
-    else if (gameObject.transform.position.x < -10)
-    {
-      m_outOfBounds = true;
-      var vel = GetComponent<Rigidbody2D>().velocity;
-      GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * GetComponent<Steering>().m_maxVel;
-      GetComponent<Steering>().enabled = false;
-    }
-    else if (gameObject.transform.position.y > 7)
-    {
-      m_outOfBounds = true;
-      var vel = GetComponent<Rigidbody2D>().velocity;
-      GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1) * GetComponent<Steering>().m_maxVel;
-      GetComponent<Steering>().enabled = false;
-    }
-    else if (gameObject.transform.position.y < -7)
-    {
-      m_outOfBounds = true;
-      var vel = GetComponent<Rigidbody2D>().velocity;
-      GetComponent<Rigidbody2D>().velocity = new Vector2(0,1) * GetComponent<Steering>().m_maxVel;
-      GetComponent<Steering>().enabled = false;
-    }
-    else
-    {
-      m_outOfBounds = false;
-      GetComponent<Steering>().enabled = true;
-    }
-    Debug.Log(m_outOfBounds);
+    //if (gameObject.transform.position.x > 10)
+    //{
+    //  m_outOfBounds = true;
+    //  var vel = GetComponent<Rigidbody2D>().velocity;
+    //  GetComponent<Rigidbody2D>().velocity = new Vector2(-1, 0) * GetComponent<Steering>().m_maxVel;
+    //  GetComponent<Steering>().enabled = false;
+    //}
+    //else if (gameObject.transform.position.x < -10)
+    //{
+    //  m_outOfBounds = true;
+    //  var vel = GetComponent<Rigidbody2D>().velocity;
+    //  GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0) * GetComponent<Steering>().m_maxVel;
+    //  GetComponent<Steering>().enabled = false;
+    //}
+    //else if (gameObject.transform.position.y > 7)
+    //{
+    //  m_outOfBounds = true;
+    //  var vel = GetComponent<Rigidbody2D>().velocity;
+    //  GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1) * GetComponent<Steering>().m_maxVel;
+    //  GetComponent<Steering>().enabled = false;
+    //}
+    //else if (gameObject.transform.position.y < -7)
+    //{
+    //  m_outOfBounds = true;
+    //  var vel = GetComponent<Rigidbody2D>().velocity;
+    //  GetComponent<Rigidbody2D>().velocity = new Vector2(0,1) * GetComponent<Steering>().m_maxVel;
+    //  GetComponent<Steering>().enabled = false;
+    //}
+    //else
+    //{
+    //  m_outOfBounds = false;
+    //  GetComponent<Steering>().enabled = true;
+    //}
+    //Debug.Log(m_outOfBounds);
   }
 
   public void StartBlink(float multiplier)
@@ -101,17 +106,14 @@ public class MiniShroom : MonoBehaviour
 
   public void OnTriggerEnter2D(Collider2D col)
   {
-
+    Debug.Log("OnTriggerEnter2D");
     if (col.gameObject.CompareTag("Wall"))
     {
-      if (!m_outOfBounds)
+      var normal = col.GetComponent<Wall>().m_normal;
+      var newVel = Vector3.Reflect(GetComponent<Rigidbody2D>().velocity, normal);
+      if (GetComponent<Wander>().enabled)
       {
-        var normal = col.GetComponent<Wall>().m_normal;
-        var newVel = Vector3.Reflect(GetComponent<Rigidbody2D>().velocity, normal);
-        if (GetComponent<Wander>().enabled)
-        {
-          GetComponent<Wander>().changeVel(newVel);
-        }
+        GetComponent<Wander>().changeVel(newVel);
       }
     }
     if (col.gameObject.CompareTag("Enemy") || col.gameObject.CompareTag("EnemyProjectile"))
@@ -128,8 +130,24 @@ public class MiniShroom : MonoBehaviour
       GetComponent<CircleCollider2D>().enabled = false;
       m_parent.GetComponent<Shroom>().addChild(gameObject);
     }
+  }
 
-    
+  public void OnTriggerStay2D(Collider2D col)
+  {
+    Debug.Log("OnTriggerStay2D");
+    if (col.gameObject.CompareTag("Wall"))
+    {
+      //if (!m_outOfBounds)
+      //{
+        var normal = col.GetComponent<Wall>().m_normal;
+        //var newVel = Vector3.Reflect(GetComponent<Rigidbody2D>().velocity, normal);
+        if (GetComponent<Wander>().enabled)
+        {
+          GetComponent<Wander>().changeVel(normal);
+        
+        }
+      //}
+    }
   }
 
   void OnDie()

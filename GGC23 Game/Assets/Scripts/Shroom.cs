@@ -75,7 +75,7 @@ public class Shroom : MonoBehaviour
         child.GetComponent<Follow>().enabled = false;
         child.GetComponent<Wander>().enabled = true;
         child.GetComponent<Wander>().changeVel(vel2D);
-        child.GetComponent<MiniShroom>().activateColliderAfterTime(2);
+        child.GetComponent<MiniShroom>().activateColliderAfterTime(.25f);
         m_childs.Remove(child);
         break;
       }
@@ -122,10 +122,11 @@ public class Shroom : MonoBehaviour
       if (!child.GetComponent<Live>().isDead())
       {
         Debug.Log("went away");
+        //child.GetComponent<CircleCollider2D>().enabled = true;
         child.GetComponent<Follow>().enabled = false;
         child.GetComponent<Wander>().enabled = true;
         child.GetComponent<Wander>().changeVel(vel2D);
-        child.GetComponent<CircleCollider2D>().enabled = true;
+        child.GetComponent<MiniShroom>().activateColliderAfterTime(.25f);
         m_childs.Remove(child);
         break;
       }
